@@ -1,0 +1,102 @@
+//não funciona ainda
+
+<div id="background">
+    <div class="jumbotron">
+        <h4 ng-bind="app"></h4>
+
+        <div ui-alert></div>
+        {{$id}}
+
+        <br>
+        <div ng-if="showOrdemDeServico">
+            {{ordemdeservico}}
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Equipamento</th>
+                    <th>Status</th>
+                    <th>Encontrar</th>
+                    <th>Alterar</th>
+                    <th>Deletar</th>
+                </tr>
+                <tr ng-repeat="ordemDeServico in ordemDeServicos">
+                    <td>{{ordemDeServico.ordemId}}</td>
+                    <td>{{ordemDeServico.nome}}</td>
+                    <td>{{ordemDeServico.equipamento}}</td>
+                    <td>{{ordemDeServico.status}}</td>
+
+                    <td><button class="btn btn-primary" id="redirectBtnstype"
+                            ng-click="showNGShowGetOrdemDeServicoFunction(ordemDeServico.ordemId)">Encontrar</button>
+                    </td>
+
+                    <td><button class="btn btn-primary" id="redirectBtnstype"
+                            ng-click="showPutODS(ordemDeServico.ordemId)">Alterar</button>
+                    </td>
+
+                    <td><button class="btn btn-primary" id="redirectBtnstype"
+                            ng-click="deleteOrdemDeServico(ordemDeServico.ordemId)">Apagar</button>
+                    </td>
+                </tr>
+            </table>
+            <br><br>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="showIfShowPostOrdemDeServico()">Adicionar nova
+                Ordem</button>
+
+        </div>
+
+
+
+        <div ng-if="showPutOrdemDeServico">
+            <form>
+                Equipamento:
+                <br>
+                <input type="text" ng-model="ordemDeServico.equipamento.modelo" placeholder="Modelo">
+                <input type="text" ng-model="ordemDeServico.equipamento.marca" placeholder="Marca">
+                <input type="text" ng-model="ordemDeServico.equipamento.classificacaoDoProduto"
+                    placeholder="Classificação Do Produto">
+                <input type="text" ng-model="ordemDeServico.equipamento.avarias" placeholder="Avarias">
+                <br>
+                Status:
+                <br>
+                <select ng-model="ordemDeServico.status">
+                    <option value="">Defina O Status Da Ordem</option>
+                    <option value="0">Pendente</option>
+                    <option value="1">Aguardando Cliente</option>
+                    <option value="3">Concluída</option>
+                </select>
+            </form>
+            <br>
+            {{ordemDeServico}}
+            <br>
+            <br>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="putOrdemDeServico(ordemDeServico)">Alterar
+                Ordem</button>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="showODS()">Voltar</button>
+        </div>
+        <br>
+        <br>
+
+
+        <div ng-if="showPostOrdemDeServico">
+            <form>
+                <!--<select class="form-control" ng-options="clienteId as cliente.nome for cliente in clientesOrdem" ng-model="ordemDeServico.cliente">
+                <option value="">Selecione o cliente</option>
+            </select>-->
+                <input type="text" ng-model="ordemDeServico.clienteId" placeholder="id">
+                <br>
+                Equipamento:
+                <input type="text" ng-model="ordemDeServico.equipamento.modelo" placeholder="modelo">
+                <input type="text" ng-model="ordemDeServico.equipamento.marca" placeholder="marca">
+                <input type="text" ng-model="ordemDeServico.equipamento.classificacaoDoProduto"
+                    placeholder="classificacaoDoProduto">
+                <input type="text" ng-model="ordemDeServico.equipamento.avarias" placeholder="avarias">
+
+
+            </form>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="postOrdemDeServico(ordemDeServico)">Adicionar
+                Cliente</button>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="showCli()">Voltar</button>
+        </div>
+    </div>
+</div>

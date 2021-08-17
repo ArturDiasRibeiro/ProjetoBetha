@@ -1,0 +1,27 @@
+<html>
+<div id="root">
+
+    <div class="jumbotron">
+        
+        <h3 id="centerIt" >Formulário de alteração de dados cadastrais de clientes</h3>
+        
+        <div id="centerIt">
+            <input type="number" id="centerIt" ng-model="cliente.id" placeholder="Id">
+            <button class="btn btnTiny" id="centerIt" ng-click="findClienteById(cliente.id)">Carregar o Cliente</button>
+        </div>
+
+        <form id="centerIt">
+
+            <input type="text" class="max225" id="centerIt" ng-model="cliente.nome" placeholder="Nome"><br>
+            <input type="text" class="max225" id="centerIt" ng-model="cliente.email" placeholder="Email"><br>
+            <input type="text" class="max225" id="centerIt" ng-model="cliente.telefone" placeholder="Telefone">
+            <input type="text" class="max225" id="centerIt" ng-model="cliente.endereco" placeholder="Endereço">
+        </form>
+        <br>
+
+        <button class="btn btnTiny" id="centerIt" ng-click="putCliente(cliente)">Alterar Cliente</button>
+        <a class="btn btnTiny" id="centerIt" href="#/clientes">Voltar</a>
+    </div>
+</div>
+
+</html>

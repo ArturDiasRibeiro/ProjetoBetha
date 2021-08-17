@@ -1,0 +1,91 @@
+<div id="root">
+
+    <div class="jumbotron">
+        <h4 ng-bind="app" class="titleOfTheScreen"></h4>
+        <br>
+
+        <div ng-if="showFuncionarios">
+
+            <div ng-show="showNGShowGetFuncionario">
+                {{funcionario}}
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="mas100">Id</th>
+                        <th>Nome</th>
+                        <th class="max150">E-mail</th>
+                        <th class="max150">Perfil</th>
+                        <th class="colunaIcone">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="funcionario in funcionarios">
+                        <td class="max100">{{funcionario.id}}</td>
+                        <td>{{funcionario.nome}}</td>
+                        <td class="max225">{{funcionario.email}}</td>
+                        <td class="max150">{{funcionario.perfil}}</td>
+                        <td class="colunaIcone">
+                            <button class="btn btnTiny" ng-click="showNGShowGetFuncionarioFunction(funcionario.id)">Encontrar</button>
+                            <button class="btn btnTiny" ng-click="showPutFunc(funcionario.id)">Alterar</button>
+                            <button class="btn btnTiny" ng-click="deleteFuncionario(funcionario.id)">Apagar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn" id="redirectBtns" ng-click="showIfShowPostFuncionario()">Adicionar novo Funcionario
+            </button>
+        </div>
+
+        <div ng-if="showPutFuncionario">
+            <form>
+                <input type="text" ng-model="funcionario.nome" placeholder="Nome">
+                <input type="text" ng-model="funcionario.email" placeholder="Email">
+                <select ng-model="funcionario.perfil">
+                    <option value="">Selecione perfil de funcionario</option>
+                    <option value="0">Admin</option>
+                    <option value="1">Técnico</option>
+                    <option value="2">Atendente</option>
+                </select>
+            </form>
+            <br>
+            {{funcionario.nome}}
+            {{funcionario.email}}
+            {{funcionario.perfil}}
+            <br>
+            <br>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="putFuncionario(funcionario)">Alterar
+                Funcionario</button>
+            <br>
+            <br>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="showFunc()">Voltar</button>
+        </div>
+        <br>
+        <br>
+        <div ng-if="showPostFuncionario">
+            <form>
+                <input type="text" ng-model="funcionario.nome" placeholder="Nome">
+                <input type="text" ng-model="funcionario.email" placeholder="Email">
+                <select ng-model="funcionario.perfil">
+                    <option value="">Selecione perfil de funcionario</option>
+                    <option value="0">Admin</option>
+                    <option value="1">Técnico</option>
+                    <option value="2">Atendente</option>
+                </select>
+
+                <input type="text" ng-model="funcionario.senha" placeholder="Senha">
+            <br>
+            <br>
+            </form>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="postFuncionario(funcionario)">Adicionar
+                Funcionario</button>
+            <br>
+            <br>
+            <button class="btn btn-primary" id="redirectBtns" ng-click="showFunc()">Voltar</button>
+        </div>
+
+
+    </div>
+</div>
