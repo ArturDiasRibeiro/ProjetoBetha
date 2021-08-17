@@ -9,17 +9,16 @@
 
             <div>
                 <br>
-                {{cliente}}
+                {{cliente.nome}}  {{cliente.telefone}} {{cliente.email}}
                 <br><br>
             </div>
 
             <table class="table table-striped">
 
-                <div id="centerIt">
-                    <input type="number" id="centerIt" ng-model="clienteId" placeholder="Id">
-                    <a class="btn btnTiny" id="centerIt" ng-click="findClienteById(clienteId)">Encontrar</a>
-                        <a class="btn btnTiny" id="centerIt" href="#/clientes/alterarcliente"
-                                ng-click="findClienteById(cliente.id)">Alterar</a>
+                <div class="centerIt">
+                    <input type="number" min="1" class="centerIt" ng-model="clienteId" placeholder="Id">
+                    <a class="btn btnTiny centerIt" ng-click="findClienteById(clienteId)">Encontrar</a>
+                    <a class="btn btnTiny centerIt" ng-click="modifyClienteById(cliente.id)">Alterar</a>
                 </div>
                 <thead>
                     <tr>
@@ -27,7 +26,7 @@
                         <th>Nome</th>
                         <th class="max150">Telefone</th>
                         <th class="max225">E-mail</th>
-                        <th class="colunaIcone" id="centerIt">Ações</th>
+                        <th class="colunaIcone centerIt">Ações</th>
                     </tr>
                 </thead>
                 <tbody>

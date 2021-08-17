@@ -8,12 +8,12 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
 
     $routeProvider.when("/clientes/inserircliente", {
         templateUrl: "view/inserircliente.html",
-        controller: "clienteController"
+        controller: "inserirClienteController"
     })
 
     $routeProvider.when("/clientes/alterarcliente", {
         templateUrl: "view/alterarCliente.html",
-        controller: "clienteController"
+        controller: "alterarClienteController"
     })
 
     $routeProvider.when("/funcionarios", {

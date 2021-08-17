@@ -64,27 +64,7 @@
         </div>
         <br>
         <br>
-        <div ng-if="showPostFuncionario">
-            <form>
-                <input type="text" ng-model="funcionario.nome" placeholder="Nome">
-                <input type="text" ng-model="funcionario.email" placeholder="Email">
-                <select ng-model="funcionario.perfil">
-                    <option value="">Selecione perfil de funcionario</option>
-                    <option value="0">Admin</option>
-                    <option value="1">Técnico</option>
-                    <option value="2">Atendente</option>
-                </select>
-
-                <input type="text" ng-model="funcionario.senha" placeholder="Senha">
-            <br>
-            <br>
-            </form>
-            <button class="btn btn-primary" id="redirectBtns" ng-click="postFuncionario(funcionario)">Adicionar
-                Funcionario</button>
-            <br>
-            <br>
-            <button class="btn btn-primary" id="redirectBtns" ng-click="showFunc()">Voltar</button>
-        </div>
+        
 
 
     </div>

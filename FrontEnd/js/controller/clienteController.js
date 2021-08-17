@@ -1,10 +1,8 @@
-angular.module("ProjetoBethaFrontEnd").controller("clienteController", function ($scope, clienteService) {
+angular.module("ProjetoBethaFrontEnd").controller("clienteController", function ($location, $scope, clienteService) {
 
     $scope.app = "Área de Clientes"
-
     $scope.clientes = []
-    $scope.clienteEncontrado = false
-  
+
     //get all Clientes
     findClientes = function () {
         clienteService.findAll().then(function (response) {
@@ -16,26 +14,20 @@ angular.module("ProjetoBethaFrontEnd").controller("clienteController", function 
     }
     findClientes()
 
-    
-
     //get one Cliente
     $scope.findClienteById = function (clienteId) {
         clienteService.findOneById(clienteId).then(function (response) {
             $scope.cliente = response.data
             console.log(response.data)
         }).catch(function (error) {
+            $scope.cliente = null
             //alert(error.data.message)
         })
     }
 
-    //put Cliente
-    $scope.putCliente = function (cliente) {
-        clienteService.putCliente(cliente).then(function (response) {
-            console.log(response.data)
-            this.findClientes()
-        }).catch(function (error) {
-            //alert(error.data.message)
-        })
+    $scope.modifyClienteById = function (clienteId) {
+        clienteService.setIdCliente(clienteId);
+        $location.path('clientes/alterarcliente');
     }
 
     //post one
@@ -47,6 +39,8 @@ angular.module("ProjetoBethaFrontEnd").controller("clienteController", function 
             alert(error.data.message)
         })
     }
+
+    
 
     //delete one
     $scope.deleteCliente = function (clienteId) {

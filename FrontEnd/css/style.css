@@ -175,7 +175,7 @@ td.colunaIcone > button + button {
     max-width: 300px;
 }
 
-#centerIt{
+.centerIt{
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
