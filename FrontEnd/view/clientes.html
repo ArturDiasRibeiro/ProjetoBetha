@@ -32,7 +32,7 @@
                 <tbody>
                     <tr ng-repeat="cliente in clientes">
                         <td class="max100">{{cliente.id}}</td>
-                        <td>{{cliente.nome}}</td>
+                        <td><a href="#/clientes/{{cliente.id}}">{{cliente.nome}}</a></td>
                         <td class="max150">{{cliente.telefone}}</td>
                         <td class="max225">{{cliente.email}}</td>
                         <td class="colunaIcone">

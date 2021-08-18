@@ -30,18 +30,6 @@ angular.module("ProjetoBethaFrontEnd").controller("clienteController", function 
         $location.path('clientes/alterarcliente');
     }
 
-    //post one
-    $scope.postCliente = function (cliente) {
-        clienteService.postCliente(cliente).then(function (response) {
-            this.findClientes()
-            console.log(response)
-        }).catch(function (error) {
-            alert(error.data.message)
-        })
-    }
-
-    
-
     //delete one
     $scope.deleteCliente = function (clienteId) {
         clienteService.deleteCliente(clienteId).then(function (response) {

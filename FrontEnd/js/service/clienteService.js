@@ -1,8 +1,6 @@
 angular.module("ProjetoBethaFrontEnd").service("clienteService", function ($http, configValue) {
 
-    this.idCliente = function() {
-        return 1;
-    }
+    
 
     this.setIdCliente = function(id) {
         idCliente = id;

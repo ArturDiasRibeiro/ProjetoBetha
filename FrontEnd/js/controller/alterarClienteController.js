@@ -1,4 +1,4 @@
-angular.module("ProjetoBethaFrontEnd").controller("alterarClienteController", function ($scope, clienteService) {
+angular.module("ProjetoBethaFrontEnd").controller("alterarClienteController", function ($scope, $location, clienteService) {
 
     $scope.findClienteById = function (clienteId) {
         clienteService.findOneById(clienteId).then(function (response) {
@@ -15,6 +15,7 @@ angular.module("ProjetoBethaFrontEnd").controller("alterarClienteController", fu
         clienteService.putCliente(cliente).then(function (response) {
             console.log(response.data)
             this.findClientes()
+            $location.path("/clientes")
         }).catch(function (error) {
             //alert(error.data.message)
         })

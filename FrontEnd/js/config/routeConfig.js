@@ -6,6 +6,11 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
         controller: "clienteController"
     })
 
+    $routeProvider.when("/clientes/:id", {
+        templateUrl: "view/findClientes.html",
+        controller: "findClientesController"
+    })
+
     $routeProvider.when("/clientes/inserircliente", {
         templateUrl: "view/inserircliente.html",
         controller: "inserirClienteController"
@@ -16,10 +21,10 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
         controller: "alterarClienteController"
     })
 
-    $routeProvider.when("/funcionarios", {
-        templateUrl: "view/funcionarios.html",
-        controller: "funcionarioController"
-    })
+    // $routeProvider.when("/funcionarios", {
+    //     templateUrl: "view/funcionarios.html",
+    //     controller: "funcionarioController"
+    // })
 
     /*  $routeProvider.when("/ordemdeservicos", {
           templateUrl: "view/ordemdeservicos.html",
