@@ -7,6 +7,7 @@
                     <th>Nome</th>
                     <th class="max150">Telefone</th>
                     <th class="max225">E-mail</th>
+                    <th>Endereço</th>
                     <th class="colunaIcone centerIt">Ações</th>
                 </tr>
             </thead>
@@ -16,13 +17,12 @@
                     <td>{{cliente.nome}}</td>
                     <td class="max150">{{cliente.telefone}}</td>
                     <td class="max225">{{cliente.email}}</td>
+                    <td>{{cliente.endereco}}</td>
                     <td class="colunaIcone">
 
-                        <a class="btn btnTiny" id="margin8px" href="#/clientes/alterarcliente"
-                            ng-click="findClienteById(cliente.id)">Alterar</a>
+                        <a class="btn btnTiny" id="margin8px" href="#/clientes/alterarcliente/{{cliente.id}}">Alterar</a>
 
-                        <button class="btn btnTiny" id="margin8px" ng-click="deleteCliente(cliente.id)">Apagar
-                        </button>
+                        <button class="btn btnTiny" id="margin8px" ng-click="deleteCliente(cliente.id)">Apagar</button>
                     </td>
                 </tr>
             </tbody>

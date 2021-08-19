@@ -1,12 +1,5 @@
 angular.module("ProjetoBethaFrontEnd").service("clienteService", function ($http, configValue) {
 
-    
-
-    this.setIdCliente = function(id) {
-        idCliente = id;
-        console.log(id);
-    }
-
     this.findAll = function () {
         return $http.get(configValue.apiUrl + "/clientes")
     }

@@ -77,6 +77,28 @@ input:focus, button:focus, textarea:focus, select:focus {
     width: 100%;
 }
 
+.jumbotronSmall {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E4E8F0;
+    width: 50%;
+    text-align: center;
+    padding: 24px;
+}
+
+.jumbotronSmall > div {
+    width: 100%;
+}
+
+.jumbotronSmall > h4 {
+    width: 100%;
+}
+
 #divDeBusca {
     margin-left: auto;
     margin-right: auto;
@@ -171,8 +193,8 @@ td.colunaIcone > button + button {
     max-width: 225px;
 }
 
-.max300 {
-    max-width: 300px;
+.max350 {
+    max-width: 350px;
 }
 
 .centerIt{

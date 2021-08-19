@@ -1,20 +1,23 @@
 <div id="root">
-
-    <div class="jumbotron">
-
+    <div class="jumbotronSmall">
         <h3 class="centerIt">Formulário de Cadastramento de Clientes</h3>
 
         <form class="centerIt">
-            <input type="text" class="max225 centerIt" ng-model="cliente.nome" placeholder="Nome"><br>
-            <input type="text" class="max225 centerIt" ng-model="cliente.email" placeholder="Email"><br>
-            <input type="text" class="max225 centerIt" ng-model="cliente.telefone" placeholder="Telefone">
-            <input type="text" class="max225 centerIt" ng-model="cliente.endereco" placeholder="Endereço">
+            <br>
+            Nome: <br>
+            <input type="text" class="max350 centerIt" ng-model="cliente.nome" placeholder="Nome"><br><br>
+            Email: <br>
+            <input type="text" class="max350 centerIt" ng-model="cliente.email" placeholder="Email"><br><br>
+            Telefone: <br>
+            <input type="text" class="max350 centerIt" ng-model="cliente.telefone" placeholder="Telefone"><br><br>
+            Endereço: <br>
+            <input type="text" class="max350 centerIt" ng-model="cliente.endereco" placeholder="Endereço"><br>
         </form>
-
         <br>
-        
+
         <button class="btn btnTiny centerIt" ng-click="postCliente(cliente)">Adicionar Cliente</button>
         <a class="btn btnTiny centerIt" href="#/clientes">Voltar</a>
+
 
     </div>
 </div>

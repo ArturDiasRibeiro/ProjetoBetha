@@ -1,4 +1,4 @@
-angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locationProvider,) {
+angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('')
 
     $routeProvider.when("/clientes", {
@@ -6,17 +6,17 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
         controller: "clienteController"
     })
 
-    $routeProvider.when("/clientes/:id", {
+    $routeProvider.when("/clientes/find/:id", {
         templateUrl: "view/findClientes.html",
         controller: "findClientesController"
     })
 
     $routeProvider.when("/clientes/inserircliente", {
-        templateUrl: "view/inserircliente.html",
+        templateUrl: "view/inserirCliente.html",
         controller: "inserirClienteController"
     })
 
-    $routeProvider.when("/clientes/alterarcliente", {
+    $routeProvider.when("/clientes/alterarcliente/:id", {
         templateUrl: "view/alterarCliente.html",
         controller: "alterarClienteController"
     })

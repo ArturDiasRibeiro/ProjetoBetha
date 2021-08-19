@@ -22,10 +22,8 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty(message = "Preenchimento Obrigatório")
     private String nome;
 
-    @NotEmpty(message = "Preenchimento Obrigatório")
     private String email;
     private String telefone;
     private String endereco;

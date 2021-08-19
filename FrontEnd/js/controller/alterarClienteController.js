@@ -1,24 +1,24 @@
-angular.module("ProjetoBethaFrontEnd").controller("alterarClienteController", function ($scope, $location, clienteService) {
+angular.module("ProjetoBethaFrontEnd").controller("alterarClienteController", function ($scope, $location, $routeParams, clienteService) {
 
     $scope.findClienteById = function (clienteId) {
-        clienteService.findOneById(clienteId).then(function (response) {
+        clienteService.findOneById(clienteId).then(function(response) {
             $scope.cliente = response.data
-            console.log(response.data)
-        }).catch(function (error) {
+        }, function(error) {
             $scope.cliente = null
-            //alert(error.data.message)
-        })
+            alert(error.data.message)
+        });
     }
+    
+    $scope.findClienteById($routeParams.id);
 
     //put Cliente
     $scope.putCliente = function (cliente) {
         clienteService.putCliente(cliente).then(function (response) {
-            console.log(response.data)
             this.findClientes()
             $location.path("/clientes")
-        }).catch(function (error) {
-            //alert(error.data.message)
-        })
+        }, function(error) {
+            alert(error.data.message)
+        });
     }
     
 });
