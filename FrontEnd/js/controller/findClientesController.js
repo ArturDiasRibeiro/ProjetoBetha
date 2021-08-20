@@ -4,7 +4,7 @@ angular.module("ProjetoBethaFrontEnd").controller("findClientesController", func
         clienteService.findOneById(clienteId).then(function (response) {
             $scope.cliente = response.data
         }, function (error) {
-            alert(error.data.message)
+            alert(error.data.errors[0].message)
             $location.path("/clientes")
         });
     }
@@ -16,7 +16,7 @@ angular.module("ProjetoBethaFrontEnd").controller("findClientesController", func
         clienteService.deleteCliente(clienteId).then(function (response) {
             $location.path("/clientes")
         }, function (error) {
-            alert(error.data.message)
+            alert(error.data.errors[0].message)
         });
     }
 })

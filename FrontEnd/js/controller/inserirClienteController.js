@@ -6,7 +6,7 @@ angular.module("ProjetoBethaFrontEnd").controller("inserirClienteController", fu
             console.log(response)
             $location.path("/clientes")
         }, function(error) {
-            alert(error.data.message)
+            alert(error.data.errors[0].message)
         });
     }
 

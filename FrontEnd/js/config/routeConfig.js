@@ -1,6 +1,12 @@
 angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('')
 
+    // HomePage
+    $routeProvider.when("/homepage", {
+        templateUrl: "view/homepage.html",
+    })
+
+    //Clientes
     $routeProvider.when("/clientes", {
         templateUrl: "view/clientes.html",
         controller: "clienteController"
@@ -21,10 +27,23 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
         controller: "alterarClienteController"
     })
 
-    // $routeProvider.when("/funcionarios", {
-    //     templateUrl: "view/funcionarios.html",
-    //     controller: "funcionarioController"
-    // })
+    // Funcionarios
+    $routeProvider.when("/funcionarios", {
+        templateUrl: "view/funcionarios.html",
+        controller: "funcionarioController"
+    })
+
+    $routeProvider.when("/funcionarios/alterarfuncionario/:id", {
+        templateUrl: "view/alterarFuncionario.html",
+        controller: "alterarFuncionarioController"
+    })
+
+    $routeProvider.when("/funcionarios/inserirfuncionario", {
+        templateUrl: "view/inserirFuncionario.html",
+        controller: "inserirFuncionarioController"
+    })
+
+
 
     /*  $routeProvider.when("/ordemdeservicos", {
           templateUrl: "view/ordemdeservicos.html",
@@ -41,5 +60,5 @@ angular.module("ProjetoBethaFrontEnd").config(function ($routeProvider, $locatio
           controller: "loginController"
       }) */
 
-    $routeProvider.otherwise("/clientes")
+    $routeProvider.otherwise("/homepage")
 })

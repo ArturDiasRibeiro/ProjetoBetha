@@ -197,6 +197,10 @@ td.colunaIcone > button + button {
     max-width: 350px;
 }
 
+.size350{
+    width: 350px;
+}
+
 .centerIt{
     margin-bottom: 5px;
     margin-left: auto;

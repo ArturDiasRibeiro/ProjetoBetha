@@ -16,6 +16,8 @@ angular.module("ProjetoBethaFrontEnd").controller("clienteController", function 
     $scope.modifyClienteById = function (clienteId) {
         clienteService.setIdCliente(clienteId);
         $location.path('clientes/alterarcliente');
+    }, function(error) {
+        alert(error.data.errors[0].message)
     }
 
 })
