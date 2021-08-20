@@ -26,18 +26,14 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente insert(Cliente obj) throws Exception{
-        if(obj.getNome().isBlank() || obj.getEmail().isBlank() || obj.getEndereco().isBlank() || obj.getTelefone().isBlank()){
-            throw new Exception("É necessário preencher todos os campos");
-        }
+    public Cliente insert(Cliente obj) {
+        
         return clienteRepository.save(obj);
     }
 
     //PUT
-    public Cliente update(Cliente obj) throws Exception {
-        if(obj.getNome().isBlank() || obj.getEmail().isBlank() || obj.getEndereco().isBlank() || obj.getTelefone().isBlank()){
-            throw new Exception("É necessário preencher todos os campos");
-        }
+    public Cliente update(Cliente obj) {
+        
         find(obj.getId());
         return clienteRepository.save(obj);
     }

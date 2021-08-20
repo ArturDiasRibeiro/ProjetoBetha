@@ -1,6 +1,8 @@
 package com.projetobetha.dev.domain;
 
 //Coded by: Artur Dias
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.projetobetha.dev.domain.enums.Perfil;
 import java.io.Serializable;
 import java.util.Objects;
@@ -8,7 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Funcionario implements Serializable {
@@ -18,11 +21,17 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message="Insira um nome")
     private String nome;
+    @NotBlank(message="Insira um Perfil")
     private Perfil perfil;
+    
+    @NotBlank(message="Insira um Email")
+    @Email(message="Email precisa ser válido")
     private String email;
 
-    @NotEmpty(message = "Preenchimento Obrigatório")
+    @NotBlank(message="Insira uma Senha")
+    @JsonProperty(access = Access.WRITE_ONLY)
     private String senha;
 
     public Funcionario() {

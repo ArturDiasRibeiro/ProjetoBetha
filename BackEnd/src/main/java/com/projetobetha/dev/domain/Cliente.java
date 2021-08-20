@@ -11,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Cliente implements Serializable {
@@ -22,10 +23,17 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank(message="Insira um nome")
     private String nome;
 
+    @NotBlank(message="Insira um Email")
+    @Email(message="Email precisa ser válido")
     private String email;
+    
+    @NotBlank(message="Insira um Telefone")
     private String telefone;
+    
+    @NotBlank(message="Insira um Endereço")
     private String endereco;
 
 

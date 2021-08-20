@@ -42,7 +42,7 @@ public class ClienteResource {
 
     //@PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
     @PostMapping
-    public ResponseEntity<Void> insert(@Valid @RequestBody Cliente obj) throws Exception {
+    public ResponseEntity<Void> insert(@Valid @RequestBody Cliente obj) {
         obj = clienteService.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(obj.getId()).toUri();
@@ -51,7 +51,7 @@ public class ClienteResource {
 
     //@PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Cliente> update(@Valid @RequestBody Cliente obj, @PathVariable Integer id) throws Exception {
+    public ResponseEntity<Cliente> update(@Valid @RequestBody Cliente obj, @PathVariable Integer id) {
         obj.setId(id);
         obj = clienteService.update(obj);
         return ResponseEntity.noContent().build();

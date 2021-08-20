@@ -42,6 +42,7 @@ public class FuncionarioService {
     //PUT
     public Funcionario update(Funcionario obj) {
         find(obj.getId());
+        obj.setSenha(bCryptPasswordEncoder.encode(obj.getSenha()));
         return funcionarioRepository.save(obj);
     }
 
