@@ -51,7 +51,7 @@ angular
       controller: "ordemDeServicoController",
     });
 
-    $routeProvider.when("/ordemdeservicos/findordem/:id",{
+    $routeProvider.when("/ordemdeservicos/find/:id",{
       templateUrl: "view/findOrdemDeServico.html",
       controller: "findOrdemDeServicoController",
     });

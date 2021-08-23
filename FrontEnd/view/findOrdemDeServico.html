@@ -1,57 +1,63 @@
 <html>
-  <div id="root">
-    <div class="jumbotron">
-      <h4 ng-bind="app" class="titleOfTheScreen"></h4>
+<div id="root">
+  <div class="jumbotron">
+
+    <h4 ng-bind="app" class="titleOfTheScreen"></h4>
+    
+    <br />
+
+    <div>
       <br />
 
-      <div>
-        <h6>
-          você pode clicar no cliente da ordem para fácil vizualização dos dados
-        </h6>
-        <br />
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="max100">Id</th>
-              <th>Nome</th>
-              <th>Equipamento</th>
-              <th class="max225">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="ordemDeServico in ordemDeServicos">
-              <td class="max100">{{ordemDeServico.id}}</td>
-              <td>{{ordemDeServico.cliente.nome}}</td>
-              <td>
-                  Equipamento:
-                  <table>
-                      <thead>
-                          <tr>
-                            <th>Id do equipamento</th>
-                            <th>Modelo</th>
-                            <th>Marca</th>
-                            <th>Tipo</th>
-                            <th>Avarias</th>
-                            <th>URL da Imagem</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr ng-repeat="equipamento in orderDeServico.equipamentos">
-                              <td>{{ordemDeServico.equipamento.id}}</td>
-                              <td>{{ordemDeServico.equipamento.modelo}}</td>
-                              <td>{{ordemDeServico.equipamento.marca}}</td>
-                              <td>{{ordemDeServico.equipamento.classificacaoDoProduto}}</td>
-                              <td>{{ordemDeServico.equipamentos.avarias}}</td>
-                              <td>{{ordemDeServico.equipamentos.imagemUrl}}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </td>
-              <td class="max225">{{ordemDeServico.status}}</td>
-            </tr>
-          </tbody>
-        </table>
 
-        <a class="btn centerIt" href="#/ordemdeservicos/criarordem"
-          >Adicionar nova Ordem</a
-        >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="max100">Id</th>
+            <th>Nome</th>
+            <th class="max225">Valor</th>
+            <th class="max225">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="max100">{{ordemDeServico.id}}</td>
+            <td>{{ordemDeServico.cliente.nome}}</td>
+            <td class="max225">{{ordemDeServico.valor | currency}}</td>
+            <td class="max225">{{ordemDeServico.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <br>
+      <h3>equipamentos da ordem</h3>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="max100">Id</th>
+            <th class="max225">Modelo</th>
+            <th class="max225">Marca</th>
+            <th class="max225">Tipo</th>
+            <th class="max225">Avarias</th>
+            <th class="max225">Imagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
+            <td class="max100">{{equipamento.id}}</td>
+            <td class="max225">{{equipamento.modelo}}</td>
+            <td class="max225">{{equipamento.marca}}</td>
+            <td class="max225">{{equipamento.classificacaoDoProduto}}</td>
+            <td class="max225">{{equipamento.avarias}}</td>
+            <td class="max225">{{equipamento.imagemUrl}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <a class="btn btnTiny centerIt" href="#/ordemdeservicos/">voltar</a>
+    </div>
+  </div>
+</div>
+</html>

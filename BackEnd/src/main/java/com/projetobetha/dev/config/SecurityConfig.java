@@ -38,8 +38,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     private static final String[] PUBLIC_MATCHERS = {
         "/h2-console/**",
-        /*APAGAR DEPOIS -->*/ "/clientes/**", "/funcionarios/**", "/ordemdeservicos/**", "/equipamentos/**","/ordemdeservicos/ordemaprovada/**",
-        "/ordemdeservicos/ordemrecusada/**"  
+        /*APAGAR DEPOIS -->*/ "/clientes/**", "/funcionarios/**", "/ordemdeservicos/**", "/equipamentos/**",
+        "/ordemdeservicos/ordemaprovada/**",
+        "/ordemdeservicos/ordemrecusada/**",
+        /*APAGAR DEPOIS -->*/"/ordemDeServicos/**"  
 
     };
     private static final String[] PUBLIC_MATCHERS_GET = {
