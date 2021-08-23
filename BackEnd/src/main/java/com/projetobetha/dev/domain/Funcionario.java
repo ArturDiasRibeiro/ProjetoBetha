@@ -21,10 +21,11 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
     @NotBlank(message="Insira um nome")
     private String nome;
-    @NotBlank(message="Insira um Perfil")
-    private Perfil perfil;
+    
+     private Perfil perfil;
     
     @NotBlank(message="Insira um Email")
     @Email(message="Email precisa ser válido")

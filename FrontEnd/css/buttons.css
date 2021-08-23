@@ -1,30 +1,50 @@
 .btn {
-    text-align: center;
-    border-radius: 12px;
-    border: 1px solid #6C6E70;
-    background-color: #ABB0B3;
-    color: #fff;
-    transition: filter .25s ease;
-    padding: 8px 16px;
-    font-size: 1.25rem;
-}
-.hoverName{
-    font-weight: 500;
-    color: #707070;
-    transition: filter .25s ease;
-
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #6c6e70;
+  background-color: #abb0b3;
+  color: #fff;
+  transition: filter 0.25s ease;
+  padding: 8px 16px;
+  font-size: 1.25rem;
 }
 
-.hoverName:hover{
-    filter: brightness(5%);
+.btnhomepage {
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #6c6e70;
+  background-color: #abb0b3;
+  color: #fff;
+  transition: filter 0.25s ease;
+  padding: 15px 50px;
+  font-size: 1.25rem;
 }
 
+.hoverName {
+  font-weight: 500;
+  color: #707070;
+  transition: filter 0.25s ease;
+}
+
+.hoverBtn {
+  font-weight: 500;
+  color: #707070;
+  transition: filter 0.25s ease;
+}
+
+.hoverBtn:hover {
+  filter: brightness(50%);
+}
+
+.hoverName:hover {
+  filter: brightness(5%);
+}
 
 .btn:hover {
-    filter: brightness(75%);
+  filter: brightness(75%);
 }
 
 .btn.btnTiny {
-    padding: 4px 8px;
-    font-size: 1.1rem;
+  padding: 4px 8px;
+  font-size: 1.1rem;
 }

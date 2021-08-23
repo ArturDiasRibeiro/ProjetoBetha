@@ -1,232 +1,245 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
 }
 
-html, body {
-    outline: none;
-    background-color: #707070;
-    font-size: 18px;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-    font-family: 'Ubuntu', sans-serif;
-    height: 100vh;
+html,
+body {
+  outline: none;
+  background-color: #707070;
+  font-size: 18px;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  font-family: "Ubuntu", sans-serif;
+  height: 100vh;
 
-    padding: 24px;
-    margin: 0;
+  padding: 24px;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    color: #000;
-}
-
-
-
-button {
-    cursor: pointer;
-}
-
-a, li, ul {
-    color:inherit;
-    text-decoration: none;
-    list-style: none;
-}
-
-h1, h2, h3, h4, h5, h6, strong, span {
-    user-select: none;
-    font-weight: 500;
-}
-
-input, button, textarea, select {
-    font-size: 1rem;
-    border: 1px solid #aeaeae;
-    transition: border .25s ease;
+  display: flex;
+  flex-direction: column;
+  color: #000;
 }
 
 button {
-    border: 1px solid #707070;
+  cursor: pointer;
 }
 
-input:focus, button:focus, textarea:focus, select:focus {
-    outline: none;
-    border: 1px solid #707070;
+a,
+li,
+ul {
+  color: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+span {
+  user-select: none;
+  font-weight: 500;
+}
+
+input,
+button,
+textarea,
+select {
+  font-size: 1rem;
+  border: 1px solid #aeaeae;
+  transition: border 0.25s ease;
+}
+
+button {
+  border: 1px solid #707070;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #707070;
 }
 
 .jumbotron {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-    background-color: #E4E8F0;
-    width: 100%;
-    text-align: center;
-    padding: 24px;
+  background-color: #e4e8f0;
+  width: 100%;
+  text-align: center;
+  padding: 24px;
 }
 
 .jumbotron > div {
-    width: 100%;
+  width: 100%;
 }
 
 .jumbotron > h4 {
-    width: 100%;
+  width: 100%;
 }
 
 .jumbotronSmall {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #E4E8F0;
-    width: 50%;
-    text-align: center;
-    padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e4e8f0;
+  width: 50%;
+  text-align: center;
+  padding: 24px;
 }
 
 .jumbotronSmall > div {
-    width: 100%;
+  width: 100%;
 }
 
 .jumbotronSmall > h4 {
-    width: 100%;
+  width: 100%;
 }
 
 #divDeBusca {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table {
-    border: none;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 3px 6px #aeaeae29;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 24px;
+  border: none;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px #aeaeae29;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 24px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 table thead {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
 }
 
 table thead tr {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    border-bottom: 1px solid #707070;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  border-bottom: 1px solid #707070;
 }
 
 table thead tr th {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
 
-    padding: 10px 12px;
-    color: #000;
-    font-size: 1.125rem;
+  padding: 10px 12px;
+  color: #000;
+  font-size: 1.125rem;
 }
 
 table tbody {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
 }
 
 table tbody tr {
-    display: flex;
-    justify-content: flex-start;
-    text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 table tbody tr + tr {
-    border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }
 
 table tbody tr td {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
-    padding: 10px 12px;
-    color: #000;
-    font-size: 1rem;
-    text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 10px 12px;
+  color: #000;
+  font-size: 1rem;
+  text-align: left;
 }
 
 th.colunaIcone {
-    max-width: 300px;
+  max-width: 300px;
 }
 
 td.colunaIcone {
-    max-width: 300px;
+  max-width: 300px;
 }
 
 td.colunaIcone > button + button {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .max100 {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 .max150 {
-    max-width: 150px;
+  max-width: 150px;
 }
 
 .max225 {
-    max-width: 225px;
+  max-width: 225px;
 }
 
 .max350 {
-    max-width: 350px;
+  max-width: 350px;
 }
 
-.size350{
-    width: 350px;
+.size350 {
+  width: 350px;
 }
 
-.centerIt{
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
+.centerIt {
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h4 {
-    color: #000;
-    text-align: center; 
-    font-size: 2rem;
+  color: #000;
+  text-align: center;
+  font-size: 2rem;
 }
 
-
 select {
-    border: 1px solid #ccc;
-    height: 30px;
-    vertical-align: top;
+  border: 1px solid #ccc;
+  height: 30px;
+  vertical-align: top;
 }
 
 input {
-    width: 100%;
-    max-width: 200px;
-    height: 30px;
-    vertical-align: top;
+  width: 100%;
+  max-width: 200px;
+  height: 30px;
+  vertical-align: top;
 }
 
-#margin8px{
-    margin-left: 8px;
+#margin8px {
+  margin-left: 8px;
 }

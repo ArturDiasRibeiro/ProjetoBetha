@@ -1,0 +1,41 @@
+<div id="root">
+  <div class="jumbotron">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="max100">Id</th>
+          <th>Nome</th>
+          <th class="max150">Telefone</th>
+          <th class="max225">E-mail</th>
+          <th>Endereço</th>
+          <th class="colunaIcone centerIt">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-model="cliente">
+          <td class="max100">{{cliente.id}}</td>
+          <td>{{cliente.nome}}</td>
+          <td class="max150">{{cliente.telefone}}</td>
+          <td class="max225">{{cliente.email}}</td>
+          <td>{{cliente.endereco}}</td>
+          <td class="colunaIcone">
+            <a
+              class="btn btnTiny"
+              id="margin8px"
+              href="#/clientes/alterarcliente/{{cliente.id}}"
+              >Alterar</a
+            >
+
+            <button
+              class="btn btnTiny"
+              id="margin8px"
+              ng-click="deleteCliente(cliente.id)"
+            >
+              Apagar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

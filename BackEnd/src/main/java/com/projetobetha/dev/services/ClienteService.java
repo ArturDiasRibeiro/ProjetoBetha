@@ -27,13 +27,11 @@ public class ClienteService {
     }
 
     public Cliente insert(Cliente obj) {
-        
         return clienteRepository.save(obj);
     }
 
     //PUT
     public Cliente update(Cliente obj) {
-        
         find(obj.getId());
         return clienteRepository.save(obj);
     }

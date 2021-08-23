@@ -1,39 +1,46 @@
 <html>
-<div id="root">
-
+  <div id="root">
     <div class="jumbotron">
-        <h4 ng-bind="app" class="titleOfTheScreen"></h4>
-        <br>
-        <h6 class="centerIt">você pode clicar no nome do funcionário para atualizar seus dados</h6><br>
+      <h4 ng-bind="app" class="titleOfTheScreen"></h4>
+      <br />
+      <h6 class="centerIt">
+        você pode clicar no nome do funcionário para atualizar seus dados
+      </h6>
+      <br />
 
-        <div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="max100">Id</th>
-                        <th>Nome</th>
-                        <th class="max150">Perfil</th>
-                        <th class="max225">E-mail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="funcionario in funcionarios">
-                        <td class="max100">{{funcionario.id}}</td>
-                        <td><a class="hoverName" href="#/funcionarios/alterarfuncionario/{{funcionario.id}}">{{funcionario.nome}}</a></td>
-                        <td class="max150">{{funcionario.perfil}}</td>
-                        <td class="max225">{{funcionario.email}}</td>
-                    </tr>
-                </tbody>
-            </table>
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="max100">Id</th>
+              <th>Nome</th>
+              <th class="max150">Perfil</th>
+              <th class="max225">E-mail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="funcionario in funcionarios">
+              <td class="max100">{{funcionario.id}}</td>
+              <td>
+                <a
+                  class="hoverName"
+                  href="#/funcionarios/alterarfuncionario/{{funcionario.id}}"
+                  >{{funcionario.nome}}</a
+                >
+              </td>
+              <td class="max150">{{funcionario.perfil}}</td>
+              <td class="max225">{{funcionario.email}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-            <br>
-            
-        </div>
-        <a class="btn centerIt" href="#/funcionarios/inserirfuncionario">Adicionar novo funcionario</a>
-
+        <br />
+      </div>
+      <a class="btn centerIt" href="#/funcionarios/inserirfuncionario"
+        >Adicionar novo funcionario</a
+      >
     </div>
-</div>
-
+  </div>
 </html>
 <!-- <div id="root">
 

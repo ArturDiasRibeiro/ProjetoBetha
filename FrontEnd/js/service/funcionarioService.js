@@ -1,22 +1,28 @@
-angular.module("ProjetoBethaFrontEnd").service("funcionarioService", function ($http, configValue) {
-
+angular
+  .module("ProjetoBethaFrontEnd")
+  .service("funcionarioService", function ($http, configValue) {
     this.findAll = function () {
-        return $http.get(configValue.apiUrl + "/funcionarios")
-    }
+      return $http.get(configValue.apiUrl + "/funcionarios");
+    };
 
     this.findOneById = function (funcionarioId) {
-        return $http.get(configValue.apiUrl + "/funcionarios/" + funcionarioId)
-    }
+      return $http.get(configValue.apiUrl + "/funcionarios/" + funcionarioId);
+    };
 
     this.putFuncionario = function (funcionario) {
-        return $http.put(configValue.apiUrl + "/funcionarios/" + funcionario.id, funcionario)
-    }
+      return $http.put(
+        configValue.apiUrl + "/funcionarios/" + funcionario.id,
+        funcionario
+      );
+    };
 
     this.postFuncionario = function (funcionario) {
-        return $http.post(configValue.apiUrl + "/funcionarios", funcionario)
-    }
+      return $http.post(configValue.apiUrl + "/funcionarios", funcionario);
+    };
 
     this.deleteFuncionario = function (funcionarioId) {
-        return $http.delete(configValue.apiUrl + "/funcionarios/" + funcionarioId)
-    }
-})
+      return $http.delete(
+        configValue.apiUrl + "/funcionarios/" + funcionarioId
+      );
+    };
+  });
