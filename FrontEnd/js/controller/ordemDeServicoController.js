@@ -3,8 +3,7 @@ angular
   .controller(
     "ordemDeServicoController",
     function ($location, $scope, ordemDeServicoService) {
-
-      $scope.app = "Ordens De Serviço"
+      $scope.app = "Ordens De Serviço";
       $scope.ordens = [];
 
       //get all ordens

@@ -211,6 +211,27 @@ td.colunaIcone > button + button {
   max-width: 350px;
 }
 
+/* BAGULHO */
+
+.stretch {
+  display: flex;
+  flex: 1;
+}
+
+.fullwidth {
+  min-width: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.input-file {
+  max-width: 400px !important;
+}
+
+/* FIM DO BAGULHO */
+
 .size350 {
   width: 350px;
 }
@@ -242,4 +263,12 @@ input {
 
 #margin8px {
   margin-left: 8px;
+}
+
+.hyperlink {
+  color: #0645ad;
+}
+
+.hyperlink:hover {
+  text-decoration: underline;
 }

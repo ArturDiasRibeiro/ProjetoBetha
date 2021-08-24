@@ -1,63 +1,89 @@
 <html>
-<div id="root">
-  <div class="jumbotron">
+  <div id="root">
+    <div class="jumbotron">
+      <h4 ng-bind="app" class="titleOfTheScreen"></h4>
 
-    <h4 ng-bind="app" class="titleOfTheScreen"></h4>
-    
-    <br />
-
-    <div>
       <br />
 
+      <div>
+        <br />
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="max100">Id</th>
-            <th>Nome</th>
-            <th class="max225">Valor</th>
-            <th class="max225">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="max100">{{ordemDeServico.id}}</td>
-            <td>{{ordemDeServico.cliente.nome}}</td>
-            <td class="max225">{{ordemDeServico.valor | currency}}</td>
-            <td class="max225">{{ordemDeServico.status}}</td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="max100">Id</th>
+              <th>Nome</th>
+              <th class="max225">Valor</th>
+              <th class="max225">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="max100">{{ordemDeServico.id}}</td>
+              <td>{{ordemDeServico.cliente.nome}}</td>
+              <td class="max225">{{ordemDeServico.valor | currency}}</td>
+              <td class="max225">{{ordemDeServico.status}}</td>
+            </tr>
+          </tbody>
+        </table>
 
+        <br />
+        <h3>equipamentos da ordem</h3>
 
-      <br>
-      <h3>equipamentos da ordem</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="max100">Id</th>
+              <th class="max225">Modelo</th>
+              <th class="max225">Marca</th>
+              <th class="max225">Tipo</th>
+              <th class="max225">Avarias</th>
+              <th class="max100">Imagem</th>
+              <th class="stretch" ng-show="true">Adicionar Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
+              <td class="max100">{{equipamento.id}}</td>
+              <td class="max225">{{equipamento.modelo}}</td>
+              <td class="max225">{{equipamento.marca}}</td>
+              <td class="max225">{{equipamento.classificacaoDoProduto}}</td>
+              <td class="max225">{{equipamento.avarias}}</td>
+              <td class="max100">
+                <a
+                  class="hyperlink"
+                  ng-show="equipamento.imagemUrl != null || equipamento.imagemUrl != undefined"
+                  target="_blank"
+                  href="{{equipamento.imagemUrl}}"
+                  >Abrir imagem
+                </a>
+              </td>
+              <td class="stretch space-between">
+                <input
+                  class="input-file addImagemEquipamento"
+                  ng-model="inputTeste"
+                  ng-change="teste()"
+                  ng-show="equipamento.imagemUrl === null || equipamento.imagemUrl === undefined"
+                  type="file"
+                />
+                <button
+                  type="submit"
+                  ng-show="equipamento.imagemUrl === null || equipamento.imagemUrl === undefined"
+                  ng-click="onAdicionarImagem(equipamento.id)"
+                >
+                  Adicionar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <a class="btn btnTiny centerIt" href="#/ordemdeservicos/alterarordem"
+          >Alterar</a
+        >
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="max100">Id</th>
-            <th class="max225">Modelo</th>
-            <th class="max225">Marca</th>
-            <th class="max225">Tipo</th>
-            <th class="max225">Avarias</th>
-            <th class="max225">Imagem</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
-            <td class="max100">{{equipamento.id}}</td>
-            <td class="max225">{{equipamento.modelo}}</td>
-            <td class="max225">{{equipamento.marca}}</td>
-            <td class="max225">{{equipamento.classificacaoDoProduto}}</td>
-            <td class="max225">{{equipamento.avarias}}</td>
-            <td class="max225">{{equipamento.imagemUrl}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <a class="btn btnTiny centerIt" href="#/ordemdeservicos/">voltar</a>
+        <a class="btn btnTiny centerIt" href="#/ordemdeservicos/">Voltar</a>
+      </div>
     </div>
   </div>
-</div>
 </html>
