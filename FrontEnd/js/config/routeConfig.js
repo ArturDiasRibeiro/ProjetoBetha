@@ -46,16 +46,20 @@ angular
     });
 
     //Ordem De Serviços
-    $routeProvider.when("/ordemdeservicos",{
+    $routeProvider.when("/ordemdeservicos", {
       templateUrl: "view/ordemDeServicos.html",
       controller: "ordemDeServicoController",
     });
 
-    $routeProvider.when("/ordemdeservicos/find/:id",{
+    $routeProvider.when("/ordemdeservicos/find/:id", {
       templateUrl: "view/findOrdemDeServico.html",
       controller: "findOrdemDeServicoController",
     });
 
+    $routeProvider.when("/ordemdeservicos/inserirordem", {
+      templateUrl: "view/inserirOrdemDeServico.html",
+      controller: "inserirOrdemDeServicoController",
+    });
     /*  $routeProvider.when("/ordemdeservicos", {
           templateUrl: "view/ordemdeservicos.html",
           controller: "ordemdeservicoController"

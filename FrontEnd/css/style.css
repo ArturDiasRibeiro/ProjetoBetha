@@ -230,6 +230,12 @@ td.colunaIcone > button + button {
   max-width: 400px !important;
 }
 
+.eq {
+  border: 1px solid black;
+  max-width: 500px;
+  background-color: #c4c0bf;
+}
+
 /* FIM DO BAGULHO */
 
 .size350 {

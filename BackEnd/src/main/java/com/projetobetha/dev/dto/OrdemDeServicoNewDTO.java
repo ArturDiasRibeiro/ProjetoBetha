@@ -10,7 +10,7 @@ public class OrdemDeServicoNewDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer clienteId;
-    private List<Equipamento> equipamento;
+    private List<Equipamento> equipamentos;
     private double valor;
     private StatusDaOrdem status;
 
@@ -31,12 +31,12 @@ public class OrdemDeServicoNewDTO implements Serializable {
         this.clienteId = clienteId;
     }
 
-    public List<Equipamento> getEquipamento() {
-        return equipamento;
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
     }
 
-    public void setEquipamento(List<Equipamento> equipamento) {
-        this.equipamento = equipamento;
+    public void setEquipamentos(List<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
     }
 
     public double getValor() {

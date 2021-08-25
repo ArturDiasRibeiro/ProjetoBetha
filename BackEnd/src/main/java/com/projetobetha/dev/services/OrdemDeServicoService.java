@@ -61,7 +61,7 @@ public class OrdemDeServicoService {
 
         Cliente cli = clienteService.find(objNewDto.getClienteId());
 
-        List<Equipamento> equipamentos = objNewDto.getEquipamento();
+        List<Equipamento> equipamentos = objNewDto.getEquipamentos();
         
         OrdemDeServico ordem = new OrdemDeServico(cli, objNewDto.getValor());
         ordemDeServicoRepository.save(ordem);

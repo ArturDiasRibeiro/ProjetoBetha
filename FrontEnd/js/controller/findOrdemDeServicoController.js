@@ -58,16 +58,5 @@ angular
           }
         );
       };
-
-      // $scope.hasImages = function (equipamentosList) {
-      //   equipamentosList.forEach((equipamento) => {
-      //     if (equipamento.imageUrl != null) {
-      //       counter = true;
-      //     } else {
-      //       counter = false;
-      //     }
-      //   });
-      //   return counter;
-      // };
     }
   );

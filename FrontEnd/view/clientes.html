@@ -1,17 +1,14 @@
 <html>
 <div id="root">
-
     <div class="jumbotron">
         <h4 ng-bind="app" class="titleOfTheScreen"></h4>
         <br>
-
         <div>
             <h6>você pode clicar no nome do cliente para fácil vizualização dos dados</h6><br>
             <div>
                 <input type="number" min="1" class="centerIt" ng-model="clienteId" placeholder="Id">
                 <a class="btn btnTiny centerIt" id="redirectBtns" href="#/clientes/find/{{clienteId}}">Encontrar</a>
             </div>
-
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -30,13 +27,9 @@
                     </tr>
                 </tbody>
             </table>
-
             <br>
-            
         </div>
         <a class="btn centerIt" href="#/clientes/inserircliente">Adicionar novo cliente</a>
-
     </div>
 </div>
-
 </html>
