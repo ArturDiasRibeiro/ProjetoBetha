@@ -60,6 +60,12 @@ angular
       templateUrl: "view/inserirOrdemDeServico.html",
       controller: "inserirOrdemDeServicoController",
     });
+
+    $routeProvider.when("/ordemdeservicos/alterarordem/:id", {
+      templateUrl: "view/alterarOrdemDeServico.html",
+      controller: "alterarOrdemDeServicoController",
+    });
+    
     /*  $routeProvider.when("/ordemdeservicos", {
           templateUrl: "view/ordemdeservicos.html",
           controller: "ordemdeservicoController"

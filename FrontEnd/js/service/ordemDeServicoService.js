@@ -34,7 +34,6 @@ angular
     this.adicionarImagem = function (equipamentoId, imageFile) {
       var formData = new FormData();
       formData.append("file", imageFile, imageFile.name);
-
       return $http.post(
         configValue.apiUrl + "/equipamentos/uploadfotos/" + equipamentoId,
         formData,

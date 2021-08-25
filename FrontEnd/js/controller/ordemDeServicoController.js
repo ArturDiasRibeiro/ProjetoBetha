@@ -20,7 +20,7 @@ angular
       };
       loadOrdemDeServicos();
 
-      $scope.modifyOrdemById = function (ordemId) {
+      $scope.modifyOrdemDeServicoById = function (ordemId) {
         ordemDeServicoService.setIdOrdem(ordemId);
         $location.path("ordemdeservicos/alterarordem");
       };
