@@ -45,6 +45,12 @@ angular
       controller: "inserirFuncionarioController",
     });
 
+    //Equipamentos
+    $routeProvider.when("/alterarequipamento/:id",{
+      templateUrl: "view/alterarEquipamento.html",
+      controller: "alterarEquipamentoController"
+    })
+
     //Ordem De Serviços
     $routeProvider.when("/ordemdeservicos", {
       templateUrl: "view/ordemDeServicos.html",
@@ -65,7 +71,7 @@ angular
       templateUrl: "view/alterarOrdemDeServico.html",
       controller: "alterarOrdemDeServicoController",
     });
-    
+
     /*  $routeProvider.when("/ordemdeservicos", {
           templateUrl: "view/ordemdeservicos.html",
           controller: "ordemdeservicoController"

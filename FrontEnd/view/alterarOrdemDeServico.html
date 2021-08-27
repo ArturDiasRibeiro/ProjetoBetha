@@ -5,63 +5,41 @@
       <br />
       <div class="centerIt">
         <br />
-        <label>Cliente Id:</label><br />
+        <h3>Cliente Id:</h3><br />
         <input
           type="number"
           class="max350 centerIt"
-          ng-model="ordemDeServico.cliente.id"
+          ng-model="ordemDeServico.clienteId"
           placeholder="ID Cliente"
         /><br />
         <!-- <button class="btn btnTiny" ng-click="onAdicionarCliente(clienteId)">
           Adicionar cliente
         </button> -->
         <br /><br />
-        <label>Equipamentos</label>
+        <h3>Equipamentos</h3><br>
         <div
           ng-repeat="equipamento in ordemDeServico.equipamentos"
           class="eq centerIt"
         >
-          <br /><br />
+        
+          <br />
           <label>Modelo:</label><br />
-          <input
-            type="text"
-            class="max350 centerIt"
-            ng-model="equipamento.modelo"
-            placeholder="Modelo"
-          />
+          {{equipamento.modelo}}
           <br /><br />
           <label>Marca:</label><br />
-          <input
-            type="text"
-            class="max350 centerIt"
-            ng-model="equipamento.marca"
-            placeholder="Marca"
-          />
+          {{equipamento.marca}}
           <br /><br />
           <label>Tipo do Produto:</label><br />
-          <input
-            type="text"
-            class="max350 centerIt"
-            ng-model="equipamento.classificacaoDoProduto"
-            placeholder="Tipo do Equipamento"
-          />
+          {{equipamento.classificacaoDoProduto}}
           <br /><br />
           <label>Avarias:</label><br />
-          <input
-            type="text"
-            class="max350 centerIt"
-            ng-model="equipamento.avarias"
-            placeholder="Avarias"
-          /><br /><br />
-          <!-- <button
-            class="btn btnTiny"
-            ng-click="onAdicionarEquipamento(equipamento)"
-          >
-            Adicionar equipamento
-          </button> -->
+          {{equipamento.avarias}}
+          <br /><br />
+          <a class="btn btnTiny" href="#/alterarequipamento/{{equipamento.id}}">Alterar Este Equipamento</a>
+          <br><br>
         </div>
         <br>
-        <label >Status da Ordem</label><br>
+        <h3 >Status da Ordem</h3><br>
         <select ng-model="ordemDeServico.status">
             <option value="0">Pendente</option>
             <option value="1">Aguardando Cliente</option>
@@ -70,7 +48,7 @@
         <br>
         <br />
         <div class="centerIt">
-          <label>Valor do Serviço:</label>
+          <h3>Valor do Serviço:</h3>
           <br />
           <input
             type="text"

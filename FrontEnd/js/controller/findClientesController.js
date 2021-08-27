@@ -24,7 +24,7 @@ angular
             $location.path("/clientes");
           },
           function (error) {
-            alert(error.data.errors[0].message);
+            alert(error.data.message);
           }
         );
       };

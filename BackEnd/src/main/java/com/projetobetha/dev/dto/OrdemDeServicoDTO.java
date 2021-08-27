@@ -11,15 +11,17 @@ public class OrdemDeServicoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer clienteId;
-    private List<Equipamento> equipamento;
+    private List<Equipamento> equipamentos;
     private StatusDaOrdem status;
+    private double valor;
 
     public OrdemDeServicoDTO() {
     }
 
-    public OrdemDeServicoDTO(Integer clienteId, StatusDaOrdem status) {
+    public OrdemDeServicoDTO(Integer clienteId, StatusDaOrdem status, double valor) {
         this.clienteId = clienteId;
         this.status = status;
+        this.valor = valor;
     }
 
     public Integer getClienteId() {
@@ -30,12 +32,12 @@ public class OrdemDeServicoDTO implements Serializable {
         this.clienteId = clienteId;
     }
 
-    public List<Equipamento> getEquipamento() {
-        return equipamento;
+    public List<Equipamento> getEquipamentos() {
+        return equipamentos;
     }
 
-    public void setEquipamento(List<Equipamento> equipamento) {
-        this.equipamento = equipamento;
+    public void setEquipamentos(List<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
     }
 
     public StatusDaOrdem getStatus() {
@@ -44,6 +46,14 @@ public class OrdemDeServicoDTO implements Serializable {
 
     public void setStatus(StatusDaOrdem status) {
         this.status = status;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
 }

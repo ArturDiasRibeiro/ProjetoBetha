@@ -3,8 +3,8 @@
     <div class="jumbotron">
       <h4 ng-bind="app" class="titleOfTheScreen"></h4>
       <br />
+      <h5 class="centerIt">Clique no cliente para carregar seus dados</h5>
       <div>
-        <br />
         <table class="table table-striped">
           <thead>
             <tr>
@@ -17,14 +17,24 @@
           <tbody>
             <tr>
               <td class="max100">{{ordemDeServico.id}}</td>
-              <td>{{ordemDeServico.cliente.nome}}</td>
+
+              <td>
+                <a
+                  class="hoverName"
+                  href="#/clientes/find/{{ordemDeServico.cliente.id}}"
+                  >{{ordemDeServico.cliente.nome}}</a
+                >
+              </td>
               <td class="max225">{{ordemDeServico.valor | currency}}</td>
               <td class="max225">{{ordemDeServico.status}}</td>
             </tr>
           </tbody>
         </table>
         <br />
+        <br />
         <h3>equipamentos da ordem</h3>
+        <br />
+        <h5>clique no ID do equipamento que desejar alterar os dados</h5>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -73,9 +83,12 @@
           </tbody>
         </table>
         <br />
-        <a class="btn btnTiny centerIt" href="#/ordemdeservicos/alterarordem/{{ordemDeServico.id}}"
-          >Alterar</a
-        >
+        <br />
+        <a
+          class="btn centerIt"
+          href="#/ordemdeservicos/alterarordem/{{ordemDeServico.id}}"
+          >Atualizar dados desta ordem</a
+        ><br /><br />
         <a class="btn btnTiny centerIt" href="#/ordemdeservicos/">Voltar</a>
       </div>
     </div>

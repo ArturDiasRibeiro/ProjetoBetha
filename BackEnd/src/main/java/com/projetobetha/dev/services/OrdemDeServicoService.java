@@ -77,25 +77,26 @@ public class OrdemDeServicoService {
     }
 
     //PUT
-    public OrdemDeServico update(OrdemDeServicoDTO objDto, Integer id) throws Exception{
+    public OrdemDeServico update(OrdemDeServicoDTO objDto, Integer id){
 
         OrdemDeServico obj = find(id);
-        
-        objDto.setClienteId(obj.getCliente().getId());
         obj.setId(id);
         
-        if(objDto.getClienteId()!=null){
+        //////////
+        obj.getCliente().setId(objDto.getClienteId());
+        ///////////
+        
         Cliente cli = clienteService.find(objDto.getClienteId());
         obj.setCliente(cli);
-        }
         
-        if(objDto.getEquipamento()!=null){
-        List<Equipamento> equipamentos = objDto.getEquipamento();
+        List<Equipamento> equipamentos = objDto.getEquipamentos();
         obj.setEquipamentos(equipamentos);
+        
         for (Equipamento eq : equipamentos) {
             equipamentoRepository.save(eq);
         }
-        }
+        
+        obj.setValor(objDto.getValor());
         
         if(objDto.getStatus()!=null) {
         obj.setStatus(objDto.getStatus());
@@ -105,9 +106,6 @@ public class OrdemDeServicoService {
             emailService.sendConfirmationHtmlEmail(obj);
         }
 
-        if(objDto.getClienteId().equals(null) && objDto.getEquipamento().equals(null) && objDto.getStatus().equals(null)){
-            throw new Exception("Alteração inválida, o campos de preenchimento não podem estar vazios!");
-        }
         
         return ordemDeServicoRepository.save(obj);
     }

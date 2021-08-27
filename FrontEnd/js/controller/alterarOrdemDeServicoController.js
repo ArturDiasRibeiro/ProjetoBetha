@@ -9,7 +9,7 @@ angular
             $scope.ordemDeServico = response.data;
           },
           function (error) {
-            $scope.ordemDeServico = null;
+            $location.path("/ordemdeservicos");
             alert(error.data.errors[0].message);
           }
         );
@@ -25,7 +25,7 @@ angular
             $location.path("/ordemdeservicos");
           },
           function (error) {
-            alert(error.data.errors[0].message);
+            alert(error.data.message);
           }
         );
       };

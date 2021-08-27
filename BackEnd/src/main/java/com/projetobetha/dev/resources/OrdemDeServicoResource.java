@@ -47,7 +47,7 @@ public class OrdemDeServicoResource {
 
     //@PreAuthorize("hasAnyRole('TECNICO','ADMIN')")
     @PutMapping(value = "/{id}")
-    public ResponseEntity<OrdemDeServico> update(@RequestBody OrdemDeServicoDTO obj, @PathVariable Integer id) throws Exception {
+    public ResponseEntity<OrdemDeServico> update(@RequestBody OrdemDeServicoDTO obj, @PathVariable Integer id) {
         OrdemDeServico ordem = ordemDeServicoService.update(obj, id);
         return ResponseEntity.noContent().build();
     }
