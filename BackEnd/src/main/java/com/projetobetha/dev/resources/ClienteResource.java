@@ -52,7 +52,6 @@ public class ClienteResource {
     //@PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Cliente> update(@Valid @RequestBody Cliente obj, @PathVariable Integer id) {
-        obj.setId(id);
         obj = clienteService.update(obj);
         return ResponseEntity.noContent().build();
     }

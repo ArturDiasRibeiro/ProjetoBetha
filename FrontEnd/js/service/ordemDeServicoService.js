@@ -11,9 +11,9 @@ angular
       );
     };
 
-    this.putOrdemDeServico = function (ordemDeServico) {
+    this.putOrdemDeServico = function (ordemDeServico, idOrdem) {
       return $http.put(
-        configValue.apiUrl + "/ordemdeservicos/" + ordemDeServico.id,
+        configValue.apiUrl + "/ordemdeservicos/" + idOrdem,
         ordemDeServico
       );
     };

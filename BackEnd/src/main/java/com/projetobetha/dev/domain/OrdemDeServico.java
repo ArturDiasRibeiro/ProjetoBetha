@@ -65,9 +65,12 @@ public class OrdemDeServico implements Serializable {
         return equipamentos;
     }
 
-    public void setEquipamentos(List<Equipamento> equipamentos) {
-        this.equipamentos = equipamentos;
-    }
+//    public void setEquipamentos(List<Equipamento> equipamentos) {
+////        for (Equipamento equipamento : equipamentos) {
+////            equipamento.setOrdem(this);
+////        }
+//        this.equipamentos = equipamentos;
+//    }
 
     public double getValor() {
         return valor;

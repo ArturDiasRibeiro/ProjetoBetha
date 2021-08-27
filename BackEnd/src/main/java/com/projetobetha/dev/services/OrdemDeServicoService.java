@@ -19,6 +19,7 @@ import com.projetobetha.dev.repositories.EquipamentoRepository;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
@@ -32,13 +33,13 @@ public class OrdemDeServicoService {
 
     @Autowired
     private ClienteService clienteService;
-    
+
     @Autowired
     private EquipamentoService equipamentoService;
 
     @Autowired
     private EmailService emailService;
-    
+
     @Autowired
     private S3Service s3Service;
 
@@ -62,54 +63,69 @@ public class OrdemDeServicoService {
         Cliente cli = clienteService.find(objNewDto.getClienteId());
 
         List<Equipamento> equipamentos = objNewDto.getEquipamentos();
-        
+
         OrdemDeServico ordem = new OrdemDeServico(cli, objNewDto.getValor());
         ordemDeServicoRepository.save(ordem);
-                
+
         for (Equipamento eq : equipamentos) {
             eq.setOrdem(ordem);
             equipamentoRepository.save(eq);
         }
-        
-        ordem.setEquipamentos(equipamentos);
+
+        //ordem.setEquipamentos(equipamentos);
         ordem.setStatus(StatusDaOrdem.PENDENTE);
         return ordemDeServicoRepository.save(ordem);
     }
 
     //PUT
-    public OrdemDeServico update(OrdemDeServicoDTO objDto, Integer id){
+    public OrdemDeServico update(OrdemDeServicoDTO objDto, Integer id) {
 
         OrdemDeServico obj = find(id);
-        obj.setId(id);
-        
-        //////////
-        obj.getCliente().setId(objDto.getClienteId());
-        ///////////
-        
+
         Cliente cli = clienteService.find(objDto.getClienteId());
         obj.setCliente(cli);
         
-        List<Equipamento> equipamentos = objDto.getEquipamentos();
-        obj.setEquipamentos(equipamentos);
-        
-        for (Equipamento eq : equipamentos) {
-            equipamentoRepository.save(eq);
+        for (Iterator<Equipamento> iterator = obj.getEquipamentos().iterator(); iterator.hasNext();) {
+            Equipamento original = iterator.next();
+            //List<Equipamento> listEq = new ArrayList<>();
+            
+            for (Equipamento novo : objDto.getEquipamentos()) {
+                if (!original.getId().equals(novo.getId())) {
+                    iterator.remove();
+                    break;
+                }
+//                original = novo;
+//                listEq.add(original);
+
+                original.setModelo(novo.getModelo());
+                original.setMarca(novo.getMarca());
+                original.setClassificacaoDoProduto(novo.getClassificacaoDoProduto());
+                original.setAvarias(novo.getAvarias());
+                original.setImagemUrl(novo.getImagemUrl());
+                original.setOrdem(obj);
+            }
+            
+            //obj.setEquipamentos(listEq);
         }
         
-        obj.setValor(objDto.getValor());
-        
-        if(objDto.getStatus()!=null) {
-        obj.setStatus(objDto.getStatus());
-        }
-        
-        if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
-            emailService.sendConfirmationHtmlEmail(obj);
-        }
 
         
+        List<Equipamento> equipamentos = objDto.getEquipamentos();
+        //obj.setEquipamentos(equipamentos);
+
+        obj.setValor(objDto.getValor());
+
+        if (objDto.getStatus() != null) {
+            obj.setStatus(objDto.getStatus());
+        }
+
+        if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
+            //emailService.sendConfirmationHtmlEmail(obj);
+        }
+
         return ordemDeServicoRepository.save(obj);
     }
-    
+
     //ORDER STATUS
     public OrdemDeServico updateAprovada(Integer id) {
         OrdemDeServico obj = find(id);
@@ -133,7 +149,6 @@ public class OrdemDeServicoService {
         }
         return ordemDeServicoRepository.save(obj);
     }
-
 
     //PATCH TO CONCLUDE ORDER
     public OrdemDeServico updateConclusao(OrdemDeServico obj) {
