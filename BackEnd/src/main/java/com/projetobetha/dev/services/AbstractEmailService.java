@@ -66,6 +66,8 @@ public abstract class AbstractEmailService implements EmailService {
     }
 
     protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj) {
+        
+        //Envio de Imagem no Email, Não está funcionando
         Context context = new Context();
         context.setVariable("ordemdeservico", obj);
 
