@@ -1,6 +1,7 @@
 package com.projetobetha.dev.services;
 
 //Coded by: Artur Dias
+import com.projetobetha.dev.domain.Equipamento;
 import com.projetobetha.dev.domain.OrdemDeServico;
 import java.util.ArrayList;
 import java.util.Date;
@@ -67,23 +68,26 @@ public abstract class AbstractEmailService implements EmailService {
     protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj) {
         Context context = new Context();
         context.setVariable("ordemdeservico", obj);
-        
-            List<String> listIdEq = new ArrayList<>();
-            List<String> listImagemEq = new ArrayList<>();
-            
-        obj.getEquipamentos().forEach((t) -> {
-            listIdEq.add(t.getId().toString());
-            listImagemEq.add(t.getImagemUrl());
-            
-        });
-        
-        context.setVariable("listIdEq", listIdEq.toString());
-        context.setVariable("listImagemEq", listImagemEq.toString());
-        
+
+        List<Integer> listIdEq = new ArrayList<>();
+        List<String> listImagemEq = new ArrayList<>();
+
+        for (Equipamento equipamento : obj.getEquipamentos()) {
+            listImagemEq.add("https://projeto-betha.s3.sa-east-1.amazonaws.com/fotoavaria/" + equipamento.getId() + "\n");
+        }
+
+        for (int i=0; i<=listImagemEq.size(); i++) {
+            context.setVariable("urlFoto"+i, listImagemEq.get(i));
+        }
+
+        context.setVariable("listIdEq", listIdEq);
+        context.setVariable("listImagemEq", listImagemEq);
+
+        System.out.println("\n\n/////////////////// \n " + listImagemEq + "\n//////////\n\n\n");
+
         context.setVariable("url", "http://localhost:8080/ordemdeservicos/ordemaprovada/" + obj.getId());
         context.setVariable("url2", "http://localhost:8080/ordemdeservicos/ordemrecusada/" + obj.getId());
-        
-        context.setVariable("urlFoto", "https://projeto-betha.s3.sa-east-1.amazonaws.com/fotoavaria/"+obj.getId());
+
         System.out.println(templateEngine.process("email/confirmarOrdemDeServico", context));
         return templateEngine.process("email/confirmarOrdemDeServico", context);
     }

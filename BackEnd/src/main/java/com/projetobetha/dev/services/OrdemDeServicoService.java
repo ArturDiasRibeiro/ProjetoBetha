@@ -84,34 +84,24 @@ public class OrdemDeServicoService {
 
         Cliente cli = clienteService.find(objDto.getClienteId());
         obj.setCliente(cli);
-        
+
         for (Iterator<Equipamento> iterator = obj.getEquipamentos().iterator(); iterator.hasNext();) {
             Equipamento original = iterator.next();
-            //List<Equipamento> listEq = new ArrayList<>();
-            
+
             for (Equipamento novo : objDto.getEquipamentos()) {
-                if (!original.getId().equals(novo.getId())) {
+                System.out.println(obj.getEquipamentos().size());
+                if (novo.getId().equals(original.getId())) {
+                    original.setModelo(novo.getModelo());
+                    original.setMarca(novo.getMarca());
+                    original.setClassificacaoDoProduto(novo.getClassificacaoDoProduto());
+                    original.setAvarias(novo.getAvarias());
+                    original.setImagemUrl(novo.getImagemUrl());
+                    original.setOrdem(obj);
+                } else {
                     iterator.remove();
-                    break;
                 }
-//                original = novo;
-//                listEq.add(original);
-
-                original.setModelo(novo.getModelo());
-                original.setMarca(novo.getMarca());
-                original.setClassificacaoDoProduto(novo.getClassificacaoDoProduto());
-                original.setAvarias(novo.getAvarias());
-                original.setImagemUrl(novo.getImagemUrl());
-                original.setOrdem(obj);
             }
-            
-            //obj.setEquipamentos(listEq);
         }
-        
-
-        
-        List<Equipamento> equipamentos = objDto.getEquipamentos();
-        //obj.setEquipamentos(equipamentos);
 
         obj.setValor(objDto.getValor());
 
@@ -120,7 +110,7 @@ public class OrdemDeServicoService {
         }
 
         if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
-            //emailService.sendConfirmationHtmlEmail(obj);
+            emailService.sendConfirmationHtmlEmail(obj);
         }
 
         return ordemDeServicoRepository.save(obj);
