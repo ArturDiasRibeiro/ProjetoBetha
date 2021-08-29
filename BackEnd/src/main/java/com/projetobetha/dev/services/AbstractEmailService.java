@@ -71,21 +71,21 @@ public abstract class AbstractEmailService implements EmailService {
         Context context = new Context();
         context.setVariable("ordemdeservico", obj);
 
-        List<Integer> listIdEq = new ArrayList<>();
-        List<String> listImagemEq = new ArrayList<>();
-
-        for (Equipamento equipamento : obj.getEquipamentos()) {
-            listImagemEq.add("https://projeto-betha.s3.sa-east-1.amazonaws.com/fotoavaria/" + equipamento.getId() + "\n");
-        }
-
-        for (int i=0; i<=listImagemEq.size(); i++) {
-            context.setVariable("urlFoto"+i, listImagemEq.get(i));
-        }
-
-        context.setVariable("listIdEq", listIdEq);
-        context.setVariable("listImagemEq", listImagemEq);
-
-        System.out.println("\n\n/////////////////// \n " + listImagemEq + "\n//////////\n\n\n");
+//        List<Integer> listIdEq = new ArrayList<>();
+//        List<String> listImagemEq = new ArrayList<>();
+//
+//        for (Equipamento equipamento : obj.getEquipamentos()) {
+//            listImagemEq.add("https://projeto-betha.s3.sa-east-1.amazonaws.com/fotoavaria/" + equipamento.getId() + "\n");
+//        }
+//
+//        for (int i=0; i<=listImagemEq.size(); i++) {
+//            context.setVariable("urlFoto"+i, listImagemEq.get(i));
+//        }
+//
+//        context.setVariable("listIdEq", listIdEq);
+//        context.setVariable("listImagemEq", listImagemEq);
+//
+//        System.out.println("\n\n/////////////////// \n " + listImagemEq + "\n//////////\n\n\n");
 
         context.setVariable("url", "http://localhost:8080/ordemdeservicos/ordemaprovada/" + obj.getId());
         context.setVariable("url2", "http://localhost:8080/ordemdeservicos/ordemrecusada/" + obj.getId());
