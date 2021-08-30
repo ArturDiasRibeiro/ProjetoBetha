@@ -113,6 +113,28 @@ select:focus {
   width: 100%;
 }
 
+.jumbotronTiny {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e4e8f0;
+  width: 30%;
+  text-align: center;
+  padding: 24px;
+}
+
+.jumbotronTiny > div {
+  width: 100%;
+}
+
+.jumbotronTiny > h4 {
+  width: 100%;
+}
+
 #divDeBusca {
   margin-left: auto;
   margin-right: auto;

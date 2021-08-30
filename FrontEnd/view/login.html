@@ -1,0 +1,29 @@
+<div id="root">
+    <div class="jumbotronTiny">
+      <h3 class="centerIt">
+        Entre com Seu Login de Funcionário
+      </h3>
+      <form class="centerIt"></form><br>
+      <label class="centerIt">Email:</label>
+        <input
+          type="text"
+          class="max350 centerIt"
+          ng-model="funcionario.email"
+          placeholder="Email"
+        /><br /><br />
+        <label class="centerIt">Senha:</label>
+        <input
+          type="password"
+          class="max350 centerIt"
+          ng-model="funcionario.senha"
+          placeholder="Senha"
+        /><br /><br />
+      </form>
+      <br />
+  
+      <button class="btn btnTiny centerIt" ng-click="logar(funcionario)">
+        Entrar
+      </button>
+    </div>
+  </div>
+  

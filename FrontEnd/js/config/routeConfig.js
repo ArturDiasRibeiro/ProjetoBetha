@@ -8,7 +8,7 @@ angular
       templateUrl: "view/homepage.html",
     });
 
-    //Clientes
+    // Clientes
     $routeProvider.when("/clientes", {
       templateUrl: "view/clientes.html",
       controller: "clienteController",
@@ -45,7 +45,7 @@ angular
       controller: "inserirFuncionarioController",
     });
 
-    //Ordem De Serviços
+    // Ordem De Serviços
     $routeProvider.when("/ordemdeservicos", {
       templateUrl: "view/ordemDeServicos.html",
       controller: "ordemDeServicoController",
@@ -64,6 +64,12 @@ angular
     $routeProvider.when("/ordemdeservicos/alterarordem/:id", {
       templateUrl: "view/alterarOrdemDeServico.html",
       controller: "alterarOrdemDeServicoController",
+    });
+
+    // Login
+    $routeProvider.when("/login", {
+      templateUrl: "view/login.html",
+      controller: "loginController",
     });
 
     /*  $routeProvider.when("/ordemdeservicos", {
