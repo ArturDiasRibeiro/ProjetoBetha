@@ -1,6 +1,8 @@
 <html>
-  <div id="root">
+  <div id="root">   
+
     <div class="jumbotron">
+      <a href="#/homepage" class="mainbtn">    HomePage</a><br><br>
       <h4 ng-bind="app" class="titleOfTheScreen"></h4>
       <br />
       <div class="centerIt">
@@ -12,11 +14,8 @@
           class="max350 centerIt"
           ng-model="ordemDeServicoDTO.clienteId"
           placeholder="ID Cliente"
-        /><br />
-        <!-- <button class="btn btnTiny" ng-click="onAdicionarCliente(clienteId)">
-          Adicionar cliente
-        </button> -->
-        <br /><br />
+        />
+        <br /><br /><br />
         <h3>Equipamentos</h3>
         <br />
         <div
@@ -24,25 +23,25 @@
           class="eq centerIt"
         >
           <br />
+          <label>Numero de identificação:</label><br />
+          {{equipamento.id}}
+          <!-- <input type="text" class="size450" value="{{equipamento.id}}" /> -->
+          <br /><br />
           <label>Modelo:</label><br />
-          <input type="text" value="{{equipamento.modelo}}" />
-          <!-- {{equipamento.modelo}} -->
+          <input type="text" class="size450" ng-model="equipamento.modelo" />
           <br /><br />
           <label>Marca:</label><br />
-          <input type="text" value="{{equipamento.marca}}" />
-          <!-- {{equipamento.marca}} -->
+          <input type="text" class="size450" ng-model="equipamento.marca" />
           <br /><br />
           <label>Tipo do Produto:</label><br />
-          <input type="text" value="{{equipamento.classificacaoDoProduto}}" />
-          <!-- {{equipamento.classificacaoDoProduto}} -->
+          <input
+            type="text"
+            class="size450"
+            ng-model="equipamento.classificacaoDoProduto"
+          />
           <br /><br />
           <label>Avarias:</label><br />
-          <input type="text" value="{{equipamento.avarias}}" />
-          <!-- {{equipamento.avarias}} -->
-          <br /><br />
-          <a class="btn btnTiny" href="#/alterarequipamento/{{equipamento.id}}"
-            >Alterar Este Equipamento</a
-          >
+          <input type="text" class="size450" ng-model="equipamento.avarias" />
           <br /><br />
         </div>
         <br />
@@ -63,14 +62,10 @@
             class="max 225 centerItf"
             ng-model="ordemDeServicoDTO.valor"
           /><br /><br />
-          <!-- <button ng-click="onAdicionarValor(valor)" class="btn btnTiny">
-            Adicionar valor
-          </button> -->
         </div>
         <br />
       </div>
       <br />
-      {{idOrdem}}
       <button
         ng-click="putOrdemDeServico(ordemDeServicoDTO, idOrdem)"
         class="btn centerIt"

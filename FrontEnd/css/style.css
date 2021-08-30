@@ -232,15 +232,39 @@ td.colunaIcone > button + button {
 
 .eq {
   border: 1px solid black;
-  max-width: 500px;
+  max-width: 600px;
   background-color: #c4c0bf;
 }
 
 /* FIM DO BAGULHO */
 
+.size450 {
+  max-width: 550px;
+}
+
 .size350 {
   width: 350px;
 }
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  margin-left: 5px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid blue; 
+}
+
+.mainbtn{
+  width: 0; 
+  height: 0; 
+  margin-left: 5px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid blue; 
+  margin-left: 20px;
+}
+
+
 
 .centerIt {
   margin-bottom: 5px;

@@ -3,6 +3,8 @@ angular
   .controller(
     "findClientesController",
     function ($scope, $routeParams, $location, clienteService) {
+    $scope.app="Cliente"
+
       $scope.findClienteById = function (clienteId) {
         clienteService.findOneById(clienteId).then(
           function (response) {

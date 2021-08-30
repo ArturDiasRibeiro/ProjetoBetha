@@ -3,6 +3,7 @@ angular
   .controller(
     "alterarOrdemDeServicoController",
     function ($scope, $location, $routeParams, ordemDeServicoService) {
+      $scope.app="Alterar Ordem de Serviço"
       $scope.ordemDeServicoDTO = {
         clienteId: undefined,
         equipamentos: [],
@@ -12,25 +13,12 @@ angular
 
       $scope.idOrdem;
 
-      var setEquipamentosDTO = function (equipamentos) {
-        let equipamentosDTO = [];
-        equipamentos.forEach((equipamento) => {
-          let equipamentoDTO = {
-            modelo: equipamento.modelo,
-            marca: equipamento.marca,
-            classificacaoDoProduto: equipamento.classificacaoDoProduto,
-            avarias: equipamento.avarias,
-          };
-          equipamentosDTO.push(equipamentoDTO);
-        });
-        return equipamentosDTO;
-      };
-
-      var setOrdemDeServicoDTO = function (ordemDeServico) {
+      let setOrdemDeServicoDTO = function (ordemDeServico) {
         $scope.ordemDeServicoDTO.clienteId = ordemDeServico.cliente.id;
         $scope.ordemDeServicoDTO.equipamentos = ordemDeServico.equipamentos;
         $scope.ordemDeServicoDTO.valor = ordemDeServico.valor;
         $scope.ordemDeServicoDTO.status = ordemDeServico.status;
+        $scope.ordemDeServicoDTO.imagemUrl = ordemDeServico.imagemUrl
         console.log($scope.ordemDeServicoDTO);
       };
 
@@ -54,12 +42,18 @@ angular
       //put OrdemDeServico
       $scope.putOrdemDeServico = function (ordemDeServicoDTO, idOrdem) {
         console.log(ordemDeServicoDTO);
+        ordemDeServicoDTO.equipamentos.forEach(equipamento => {
+          if(equipamento.imagemUrl===""){
+            equipamento.imagemUrl=null;
+            console.log(imagemUrl)
+          }
+        });
+        
         ordemDeServicoDTO.status = parseInt(ordemDeServicoDTO.status);
         ordemDeServicoService
           .putOrdemDeServico(ordemDeServicoDTO, idOrdem)
           .then(
             function (response) {
-              //this.findOrdemDeServicos()
               $location.path("/ordemdeservicos");
             },
             function (error) {

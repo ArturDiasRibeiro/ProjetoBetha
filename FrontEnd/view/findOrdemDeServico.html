@@ -1,6 +1,7 @@
 <html>
   <div id="root">
     <div class="jumbotron">
+      <a href="#/homepage" class="mainbtn">    HomePage</a><br><br>
       <h4 ng-bind="app" class="titleOfTheScreen"></h4>
       <br />
       <h5 class="centerIt">Clique no cliente para carregar seus dados</h5>
@@ -66,8 +67,6 @@
               <td class="stretch space-between">
                 <input
                   class="input-file addImagemEquipamento"
-                  ng-model="inputTeste"
-                  ng-change="teste()"
                   ng-show="equipamento.imagemUrl === null || equipamento.imagemUrl === undefined"
                   type="file"
                 />
