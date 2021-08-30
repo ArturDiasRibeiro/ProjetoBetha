@@ -4,6 +4,7 @@ package com.projetobetha.dev.dto;
 import com.projetobetha.dev.domain.Equipamento;
 import com.projetobetha.dev.domain.enums.StatusDaOrdem;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class OrdemDeServicoDTO implements Serializable {
@@ -13,12 +14,12 @@ public class OrdemDeServicoDTO implements Serializable {
     private Integer clienteId;
     private List<Equipamento> equipamentos;
     private StatusDaOrdem status;
-    private double valor;
+    private BigDecimal valor;
 
     public OrdemDeServicoDTO() {
     }
 
-    public OrdemDeServicoDTO(Integer clienteId, StatusDaOrdem status, double valor) {
+    public OrdemDeServicoDTO(Integer clienteId, StatusDaOrdem status, BigDecimal valor) {
         this.clienteId = clienteId;
         this.status = status;
         this.valor = valor;
@@ -48,12 +49,11 @@ public class OrdemDeServicoDTO implements Serializable {
         this.status = status;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
-
 }

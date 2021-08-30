@@ -24,18 +24,6 @@ public class EquipamentoService {
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Equipamento.class.getName()));
     }
-
-    //PUT
-    public Equipamento update(Equipamento obj, Integer id) {
-        
-        Equipamento eq = find(id);
-        obj.setId(id);
-        obj.setOrdem(eq.getOrdem());
-        
-        
-        return equipamentoRepository.save(obj);
-    }
-    
         
     public URI uploadFotosEquipamento(MultipartFile multipartFile, Integer id) {
         URI uri = s3Service.uploadFile(multipartFile, id);

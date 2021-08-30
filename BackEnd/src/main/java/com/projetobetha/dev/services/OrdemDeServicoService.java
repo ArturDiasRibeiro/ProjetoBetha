@@ -35,13 +35,7 @@ public class OrdemDeServicoService {
     private ClienteService clienteService;
 
     @Autowired
-    private EquipamentoService equipamentoService;
-
-    @Autowired
     private EmailService emailService;
-
-    @Autowired
-    private S3Service s3Service;
 
     //GET BY ID
     public OrdemDeServico find(Integer id) {

@@ -3,6 +3,7 @@ package com.projetobetha.dev.domain;
 //Coded by: Artur Dias
 import com.projetobetha.dev.domain.enums.StatusDaOrdem;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,14 +34,14 @@ public class OrdemDeServico implements Serializable {
     
     
 
-    private double valor;
+    private BigDecimal valor;
 
     private StatusDaOrdem status;
 
     public OrdemDeServico() {
     }
 
-    public OrdemDeServico(Cliente cliente, double valor) {
+    public OrdemDeServico(Cliente cliente, BigDecimal valor) {
         this.cliente = cliente;
         this.valor = valor;
     }
@@ -65,21 +66,14 @@ public class OrdemDeServico implements Serializable {
         return equipamentos;
     }
 
-//    public void setEquipamentos(List<Equipamento> equipamentos) {
-////        for (Equipamento equipamento : equipamentos) {
-////            equipamento.setOrdem(this);
-////        }
-//        this.equipamentos = equipamentos;
-//    }
-
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
-
+    
     public StatusDaOrdem getStatus() {
         return status;
     }
