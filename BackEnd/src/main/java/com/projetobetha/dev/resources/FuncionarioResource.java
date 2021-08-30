@@ -26,14 +26,14 @@ public class FuncionarioResource {
     @Autowired
     private FuncionarioService funcionarioService;
 
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
     public ResponseEntity<List<Funcionario>> findAll() {
         List<Funcionario> list = funcionarioService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> find(@PathVariable Integer id) {
 
@@ -41,7 +41,7 @@ public class FuncionarioResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody Funcionario obj) {
         obj = funcionarioService.insert(obj);
@@ -50,7 +50,7 @@ public class FuncionarioResource {
         return ResponseEntity.created(uri).build();
     }
 
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Funcionario> update(@Valid @RequestBody Funcionario obj, @PathVariable Integer id) {
         obj.setId(id);
@@ -58,7 +58,7 @@ public class FuncionarioResource {
         return ResponseEntity.noContent().build();
     }
 
-    //@PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         funcionarioService.delete(id);
