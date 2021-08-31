@@ -27,14 +27,14 @@ public class ClienteResource {
     @Autowired
     private ClienteService clienteService;
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'TECNICO', 'ADMIN')")
     @GetMapping
     public ResponseEntity<List<Cliente>> findAll() {
         List<Cliente> list = clienteService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'TECNICO', 'ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> find(@PathVariable Integer id) {
 
@@ -42,7 +42,7 @@ public class ClienteResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody Cliente obj) {
         obj = clienteService.insert(obj);
@@ -51,7 +51,7 @@ public class ClienteResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Cliente> update(@Valid @RequestBody Cliente obj, @PathVariable Integer id) {
         obj = clienteService.update(obj);

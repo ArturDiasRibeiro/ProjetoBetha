@@ -21,7 +21,7 @@ public class OrdemDeServicoResource {
     @Autowired
     private OrdemDeServicoService ordemDeServicoService;
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'TECNICO', 'ADMIN')")
     @GetMapping(value = "/{id}")
     public ResponseEntity<OrdemDeServico> find(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.find(id);
@@ -29,14 +29,14 @@ public class OrdemDeServicoResource {
     }
 
     
-    @PreAuthorize("hasAnyRole('ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'TECNICO', 'ADMIN')")
     @GetMapping
     public ResponseEntity<List<OrdemDeServico>> findAll() {
         List<OrdemDeServico> list = ordemDeServicoService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @PreAuthorize("hasAnyRole('ATENDENTE','ADMIN')")
+    @PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
     @PostMapping
     public ResponseEntity<Void> insert(@RequestBody OrdemDeServicoNewDTO objDTO) {
         OrdemDeServico obj = ordemDeServicoService.insert(objDTO);
@@ -45,7 +45,7 @@ public class OrdemDeServicoResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @PreAuthorize("hasAnyRole('TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('TECNICO', 'ADMIN')")
     @PutMapping(value = "/{id}")
     public ResponseEntity<OrdemDeServico> update(@RequestBody OrdemDeServicoDTO obj, @PathVariable Integer id) {
         OrdemDeServico ordem = ordemDeServicoService.update(obj, id);
@@ -53,14 +53,14 @@ public class OrdemDeServicoResource {
     }
     
    
-    @PreAuthorize("hasAnyRole('CLIENTE','ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENTE', 'ATENDENTE', 'TECNICO', 'ADMIN')")
     @PostMapping(value = "/ordemaprovada/{id}")
     public ResponseEntity<OrdemDeServico> updateAprovada(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.updateAprovada(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PreAuthorize("hasAnyRole('CLIENTE','ATENDENTE','TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('CLIENTE', 'ATENDENTE', 'TECNICO', 'ADMIN')")
     @PostMapping(value = "/ordemrecusada/{id}")
     public ResponseEntity<OrdemDeServico> updateReprovada(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.updateReprovada(id);
@@ -68,7 +68,7 @@ public class OrdemDeServicoResource {
 
     }
 
-    @PreAuthorize("hasAnyRole('TECNICO','ADMIN')")
+    @PreAuthorize("hasAnyRole('TECNICO', 'ADMIN')")
     @PostMapping(value = "/servicorealizado/{id}")
     public ResponseEntity<OrdemDeServico> updateConclusao(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.find(id);
