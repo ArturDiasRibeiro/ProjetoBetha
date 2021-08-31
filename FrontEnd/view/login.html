@@ -8,20 +8,20 @@
         <input
           type="text"
           class="max350 centerIt"
-          ng-model="funcionario.email"
+          ng-model="login.email"
           placeholder="Email"
         /><br /><br />
         <label class="centerIt">Senha:</label>
         <input
           type="password"
           class="max350 centerIt"
-          ng-model="funcionario.senha"
+          ng-model="login.senha"
           placeholder="Senha"
         /><br /><br />
       </form>
       <br />
   
-      <button class="btn btnTiny centerIt" ng-click="logar(funcionario)">
+      <button class="btn btnTiny centerIt" ng-click="fazerLogin(login)">
         Entrar
       </button>
     </div>

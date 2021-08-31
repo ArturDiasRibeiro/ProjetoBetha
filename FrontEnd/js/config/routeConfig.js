@@ -3,12 +3,12 @@ angular
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix("");
 
-    // HomePage
+    // HomePage //
     $routeProvider.when("/homepage", {
       templateUrl: "view/homepage.html",
     });
 
-    // Clientes
+    // Clientes //
     $routeProvider.when("/clientes", {
       templateUrl: "view/clientes.html",
       controller: "clienteController",
@@ -29,7 +29,7 @@ angular
       controller: "alterarClienteController",
     });
 
-    // Funcionarios
+    // Funcionarios //
     $routeProvider.when("/funcionarios", {
       templateUrl: "view/funcionarios.html",
       controller: "funcionarioController",
@@ -45,7 +45,7 @@ angular
       controller: "inserirFuncionarioController",
     });
 
-    // Ordem De Serviços
+    // Ordem De Serviços //
     $routeProvider.when("/ordemdeservicos", {
       templateUrl: "view/ordemDeServicos.html",
       controller: "ordemDeServicoController",
@@ -66,26 +66,11 @@ angular
       controller: "alterarOrdemDeServicoController",
     });
 
-    // Login
+    // Login //
     $routeProvider.when("/login", {
       templateUrl: "view/login.html",
       controller: "loginController",
     });
-
-    /*  $routeProvider.when("/ordemdeservicos", {
-          templateUrl: "view/ordemdeservicos.html",
-          controller: "ordemdeservicoController"
-      })
-  
-      $routeProvider.when("/home", {
-          templateUrl: "view/home.html",
-          controller: "homeController"
-      })
-  
-      $routeProvider.when("/login", {
-          templateUrl: "view/login.html",
-          controller: "loginController"
-      }) */
 
     $routeProvider.otherwise("/homepage");
   });

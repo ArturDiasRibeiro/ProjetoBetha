@@ -11,13 +11,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
     <script src="locale/angular-locale_pt-br.js"></script>
 
-    <!--Diretivas-->
-
     <!--App.JS-->
     <script src="js/app.js"></script>
 
     <!--Configs-->
     <script src="js/config/routeConfig.js"></script>
+    <script src="js/config/interceptorConfig.js"></script>
 
     <!--Values-->
     <script src="js/value/configValue.js"></script>
@@ -30,7 +29,7 @@
     <script src="js/controller/inserirClienteController.js"></script>
     <script src="js/controller/alterarClienteController.js"></script>
 
-    <!-- Funcionario -->
+    <!--Funcionario-->
     <script src="js/service/funcionarioService.js"></script>
 
     <script src="js/controller/funcionarioController.js"></script>
@@ -45,9 +44,16 @@
     <script src="js/controller/inserirOrdemDeServicoController.js"></script>
     <script src="js/controller/alterarOrdemDeServicoController.js"></script>
 
-    <!--LOGIN-->
+    <!--Interceptors-->
+
+    <script src="js/interceptors/authenticationInterceptor.js"></script>
+    <script src="js/interceptors/errorInterceptor.js"></script>
+
+    <!--Login-->
+
     <script src="js/controller/loginController.js"></script>
-    <script src="js/service/loginService.js"></script>
+
+    <script src="js/service/loginAPI.js"></script>
 
     <!--CSS-->
     <link href="css/style.css" rel="stylesheet" />

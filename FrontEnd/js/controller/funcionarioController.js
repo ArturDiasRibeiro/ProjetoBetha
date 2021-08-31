@@ -13,7 +13,7 @@ angular
             $scope.funcionarios = response.data;
           },
           function (error) {
-            alert(error.data.errors[0].message);
+            alert(error.data.message);
           }
         );
       };

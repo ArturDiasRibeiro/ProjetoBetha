@@ -1,16 +1,20 @@
 angular
   .module("ProjetoBethaFrontEnd")
-  .controller("loginController", function ($scope, loginService, $location) {
-      
-    $scope.logar = (funcionario) => {
-      loginService.login(funcionario).then((response) => {
+  .controller("loginController", function ($scope, loginAPI, $location) {
+    $scope.fazerLogin = function (login) {
+      var creds = {
+        email: login.email,
+        senha: login.senha,
+      };
+      loginAPI.login(creds).then(
+        function (response) {
           console.log(response);
-          const authorization = response.headers("authorization");
-          localStorage.setItem("token", authorization);
+          localStorage.setItem("auth", response.headers("Authorization"));
           $location.path("/homepage");
-        })
-        .catch(function (error) {
-          alert("Usúario ou senha incorretos!");
-        });
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
     };
   });
