@@ -1,11 +1,8 @@
 package com.projetobetha.dev.services;
 
 //Coded by: Artur Dias
-import com.projetobetha.dev.domain.Equipamento;
 import com.projetobetha.dev.domain.OrdemDeServico;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,26 +63,11 @@ public abstract class AbstractEmailService implements EmailService {
     }
 
     protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj) {
-        
-        //Envio de Imagem no Email, Não está funcionando
         Context context = new Context();
-        context.setVariable("ordemdeservico", obj);
+        
+        context.setVariable("ordem", obj);
 
-//        List<Integer> listIdEq = new ArrayList<>();
-//        List<String> listImagemEq = new ArrayList<>();
-//
-//        for (Equipamento equipamento : obj.getEquipamentos()) {
-//            listImagemEq.add("https://projeto-betha.s3.sa-east-1.amazonaws.com/fotoavaria/" + equipamento.getId() + "\n");
-//        }
-//
-//        for (int i=0; i<=listImagemEq.size(); i++) {
-//            context.setVariable("urlFoto"+i, listImagemEq.get(i));
-//        }
-//
-//        context.setVariable("listIdEq", listIdEq);
-//        context.setVariable("listImagemEq", listImagemEq);
-//
-//        System.out.println("\n\n/////////////////// \n " + listImagemEq + "\n//////////\n\n\n");
+        context.setVariable("equipamentos", obj.getEquipamentos());
 
         context.setVariable("url", "http://localhost:8080/ordemdeservicos/ordemaprovada/" + obj.getId());
         context.setVariable("url2", "http://localhost:8080/ordemdeservicos/ordemrecusada/" + obj.getId());
@@ -97,8 +79,9 @@ public abstract class AbstractEmailService implements EmailService {
     protected MimeMessage prepareMimeMessageFromOrdemDeServico(OrdemDeServico obj) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
-        mmh.setTo(recipient); //Later it will be obj.getCliente().getEmail()
-        mmh.setFrom(sender);
+        
+        mmh.setTo(obj.getCliente().getEmail());
+        mmh.setFrom("ServiçosDeReparosDeMentirinha@email.com");
         mmh.setSubject("Confirme sua Ordem de Serviço! Código: " + obj.getId());
         mmh.setSentDate(new Date(System.currentTimeMillis()));
         mmh.setText(htmlFromTemplateOrdemDeServico(obj), true);

@@ -16,11 +16,7 @@ import com.projetobetha.dev.domain.Cliente;
 import com.projetobetha.dev.domain.Equipamento;
 import com.projetobetha.dev.dto.OrdemDeServicoNewDTO;
 import com.projetobetha.dev.repositories.EquipamentoRepository;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class OrdemDeServicoService {
@@ -102,7 +98,9 @@ public class OrdemDeServicoService {
         if (objDto.getStatus() != null) {
             obj.setStatus(objDto.getStatus());
         }
-
+        
+        ordemDeServicoRepository.save(obj);
+        
         if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
             emailService.sendConfirmationHtmlEmail(obj);
         }
