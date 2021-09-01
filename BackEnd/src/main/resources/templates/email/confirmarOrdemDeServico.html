@@ -13,9 +13,15 @@
                 padding: 5px 10px;
             }
 
+            .centerIt {
+                margin-bottom: 5px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
         </style>    
     </head>
-    
+
     <body style="text-align: center;">
 
         <h1 style="font-weight: bold;">Ordem de Serviço</h1>
@@ -26,7 +32,7 @@
 
         <h2>Detalhes do pedido:</h2>
 
-        <table>
+        <table class="centerIt">
 
             <tr>
                 <th>Modelo</th>
@@ -35,35 +41,29 @@
                 <th>Avaria</th>
                 <th>Imagem</th>
             </tr>
-            
-            <tr th:each="equipamento : ${equipamentos}">
+
+            <tr th:each="equipamento : ${ordemDto.equipamentos}">
                 <td th:text="${equipamento.modelo}"></td>
                 <td th:text="${equipamento.marca}"></td>
                 <td th:text="${equipamento.classificacaoDoProduto}"></td>
                 <td th:text="${equipamento.avarias}"></td>
-                <td th:text="${equipamento.imagemUrl}"></td>
+                <td>
+                    <a th:href="${equipamento.imagemUrl}" th:text="${equipamento.imagemUrl}" target="_blank" />
+                </td>
             </tr>
-            
-            <div>
-                <span>
-                    Valor total de serviço:
-                </span>
-                <span>R$</span><span th:text="${#numbers.formatDecimal(ordem.valor, 0, 'POINT', 2, 'COMMA')}"></span>
-            </div>
-        </p>
+        </table>
+        <div>
+            <span>
+                Valor total de serviço:
+            </span>
+            <span>R$</span><span th:text="${#numbers.formatDecimal(ordem.valor, 0, 'POINT', 2, 'COMMA')}"></span>
+        </div>
+    </p>
 
-        <p>
-            Cliente:
-            <span th:text="${ordem.cliente.nome}"></span>
-        </p>
-
-        <p>
-            Foto da Avaria retirada pelo Técnico:
-        <form action="#" th:action="${urlFoto}" method="get">
-            <imput type="submit" value="Visualizar foto"/>
-        </form>
-    </p> 
-
+    <p>
+        Cliente:
+        <span th:text="${ordem.cliente.nome}"></span>
+    </p>
 
     <p>Status da sua ordem de servico: <span th:text="${ordem.status.getDescricao()}"></span></p>
 

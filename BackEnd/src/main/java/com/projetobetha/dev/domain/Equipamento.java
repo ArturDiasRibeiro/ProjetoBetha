@@ -20,9 +20,13 @@ public class Equipamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message="Preencha todas as informações do Equipamento")
     private String modelo;
+    @NotBlank(message="Preencha todas as informações do Equipamento")
     private String marca;
+    @NotBlank(message="Preencha todas as informações do Equipamento")
     private String classificacaoDoProduto;
+    @NotBlank(message="Preencha todas as informações do Equipamento")
     private String avarias;
     
     private String imagemUrl;

@@ -98,13 +98,12 @@ public class OrdemDeServicoService {
         if (objDto.getStatus() != null) {
             obj.setStatus(objDto.getStatus());
         }
-        
-        ordemDeServicoRepository.save(obj);
-        
+
         if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
-            emailService.sendConfirmationHtmlEmail(obj);
+            emailService.sendConfirmationHtmlEmail(obj, objDto);
         }
 
+        //ordemDeServicoRepository.save(obj);
         return ordemDeServicoRepository.save(obj);
     }
 

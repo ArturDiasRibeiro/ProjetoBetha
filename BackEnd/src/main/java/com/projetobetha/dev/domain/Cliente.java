@@ -23,19 +23,18 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message="Insira um nome")
+    @NotBlank(message = "Preencha todas as informações do Cliente")
     private String nome;
 
-    @NotBlank(message="Insira um Email")
-    @Email(message="Email precisa ser válido")
+    @NotBlank(message = "Preencha todas as informações do Cliente")
+    @Email(message = "Email precisa ser válido")
     private String email;
-    
-    @NotBlank(message="Insira um Telefone")
-    private String telefone;
-    
-    @NotBlank(message="Insira um Endereço")
-    private String endereco;
 
+    @NotBlank(message = "Preencha todas as informações do Cliente")
+    private String telefone;
+
+    @NotBlank(message = "Preencha todas as informações do Cliente")
+    private String endereco;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente")

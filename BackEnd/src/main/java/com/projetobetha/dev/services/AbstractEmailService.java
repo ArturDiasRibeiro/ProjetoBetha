@@ -2,6 +2,7 @@ package com.projetobetha.dev.services;
 
 //Coded by: Artur Dias
 import com.projetobetha.dev.domain.OrdemDeServico;
+import com.projetobetha.dev.dto.OrdemDeServicoDTO;
 import java.util.Date;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -33,9 +34,9 @@ public abstract class AbstractEmailService implements EmailService {
     }
 
     @Override
-    public void sendConfirmationHtmlEmail(OrdemDeServico obj) {
+    public void sendConfirmationHtmlEmail(OrdemDeServico obj, OrdemDeServicoDTO objDto) {
         try {
-            MimeMessage mm = prepareMimeMessageFromOrdemDeServico(obj);
+            MimeMessage mm = prepareMimeMessageFromOrdemDeServico(obj, objDto);
             sendHtmlEmail(mm);
         } catch (MessagingException ex) {
             sendConfirmationEmail(obj);
@@ -62,10 +63,11 @@ public abstract class AbstractEmailService implements EmailService {
         return sm;
     }
 
-    protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj) {
+    protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj, OrdemDeServicoDTO objDto) {
         Context context = new Context();
         
         context.setVariable("ordem", obj);
+        context.setVariable("ordemDto", objDto);
 
         context.setVariable("equipamentos", obj.getEquipamentos());
 
@@ -76,7 +78,7 @@ public abstract class AbstractEmailService implements EmailService {
         return templateEngine.process("email/confirmarOrdemDeServico", context);
     }
 
-    protected MimeMessage prepareMimeMessageFromOrdemDeServico(OrdemDeServico obj) throws MessagingException {
+    protected MimeMessage prepareMimeMessageFromOrdemDeServico(OrdemDeServico obj, OrdemDeServicoDTO objDto) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
         
@@ -84,7 +86,7 @@ public abstract class AbstractEmailService implements EmailService {
         mmh.setFrom("ServiçosDeReparosDeMentirinha@email.com");
         mmh.setSubject("Confirme sua Ordem de Serviço! Código: " + obj.getId());
         mmh.setSentDate(new Date(System.currentTimeMillis()));
-        mmh.setText(htmlFromTemplateOrdemDeServico(obj), true);
+        mmh.setText(htmlFromTemplateOrdemDeServico(obj, objDto), true);
         return mimeMessage;
     }
 
