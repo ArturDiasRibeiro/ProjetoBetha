@@ -15,7 +15,7 @@ angular
         ordemDeServicoService.postOrdemDeServico(ordemDeServico).then(
           function (response) {
             console.log(response);
-            $location.path("/ordemdeservico");
+            $location.path("/ordemdeservicos");
           },
           function (error) {
             console.log(error);

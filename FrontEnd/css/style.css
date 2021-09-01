@@ -233,8 +233,6 @@ td.colunaIcone > button + button {
   max-width: 350px;
 }
 
-/* BAGULHO */
-
 .stretch {
   display: flex;
   flex: 1;
@@ -257,8 +255,6 @@ td.colunaIcone > button + button {
   max-width: 600px;
   background-color: #c4c0bf;
 }
-
-/* FIM DO BAGULHO */
 
 .size450 {
   max-width: 550px;

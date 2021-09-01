@@ -22,7 +22,7 @@ angular
         clienteService.putCliente(cliente).then(
           function (response) {
             //this.findClientes()
-            $location.path("/clientes");
+            $location.path("/clientes/find/"+cliente.id);
           },
           function (error) {
             alert(error.data.errors[0].message);

@@ -54,7 +54,7 @@ angular
           .putOrdemDeServico(ordemDeServicoDTO, idOrdem)
           .then(
             function (response) {
-              $location.path("/ordemdeservicos");
+              $location.path("/ordemdeservicos/find/"+idOrdem);
             },
             function (error) {
               alert(error.data.message);
