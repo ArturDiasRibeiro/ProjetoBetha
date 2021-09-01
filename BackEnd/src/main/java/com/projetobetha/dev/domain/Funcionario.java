@@ -21,17 +21,17 @@ public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    @NotBlank(message="Insira um nome")
+
+    @NotBlank(message = "Insira um nome")
     private String nome;
-    
-     private Perfil perfil;
-    
-    @NotBlank(message="Insira um Email")
-    @Email(message="Email precisa ser válido")
+
+    private Perfil perfil;
+
+    @NotBlank(message = "Insira um Email")
+    @Email(message = "Email precisa ser válido")
     private String email;
 
-    @NotBlank(message="Insira uma Senha")
+    @NotBlank(message = "Insira uma Senha")
     @JsonProperty(access = Access.WRITE_ONLY)
     private String senha;
 

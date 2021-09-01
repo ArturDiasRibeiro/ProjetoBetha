@@ -65,11 +65,9 @@ public abstract class AbstractEmailService implements EmailService {
 
     protected String htmlFromTemplateOrdemDeServico(OrdemDeServico obj, OrdemDeServicoDTO objDto) {
         Context context = new Context();
-        
+
         context.setVariable("ordem", obj);
         context.setVariable("ordemDto", objDto);
-
-        context.setVariable("equipamentos", obj.getEquipamentos());
 
         context.setVariable("url", "http://localhost:8080/ordemdeservicos/ordemaprovada/" + obj.getId());
         context.setVariable("url2", "http://localhost:8080/ordemdeservicos/ordemrecusada/" + obj.getId());
@@ -81,7 +79,7 @@ public abstract class AbstractEmailService implements EmailService {
     protected MimeMessage prepareMimeMessageFromOrdemDeServico(OrdemDeServico obj, OrdemDeServicoDTO objDto) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mmh = new MimeMessageHelper(mimeMessage, true);
-        
+
         mmh.setTo(obj.getCliente().getEmail());
         mmh.setFrom("ServiçosDeReparosDeMentirinha@email.com");
         mmh.setSubject("Confirme sua Ordem de Serviço! Código: " + obj.getId());
@@ -92,7 +90,7 @@ public abstract class AbstractEmailService implements EmailService {
 
     protected String htmlConclusionOrderFromTemplateOrdemDeServico(OrdemDeServico obj) {
         Context context = new Context();
-        context.setVariable("ordemdeservico", obj);
+        context.setVariable("ordem", obj);
         System.out.println(templateEngine.process("email/finalizadaOrdemDeServico", context));
         return templateEngine.process("email/finalizadaOrdemDeServico", context);
     }

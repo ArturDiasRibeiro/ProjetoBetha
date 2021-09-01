@@ -41,7 +41,6 @@ public class Cliente implements Serializable {
     private List<OrdemDeServico> ordens = new ArrayList<>();
 
     public Cliente() {
-        //addPerfil(Perfil.CLIENTE);
     }
 
     public Cliente(String nome, String email, String telefone, String endereco) {
@@ -49,7 +48,6 @@ public class Cliente implements Serializable {
         this.email = email;
         this.telefone = telefone;
         this.endereco = endereco;
-        //addPerfil(Perfil.CLIENTE);
     }
 
     public Integer getId() {

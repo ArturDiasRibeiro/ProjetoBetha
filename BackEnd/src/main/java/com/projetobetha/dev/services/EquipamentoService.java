@@ -15,7 +15,7 @@ public class EquipamentoService {
 
     @Autowired
     private EquipamentoRepository equipamentoRepository;
-    
+
     @Autowired
     private S3Service s3Service;
 
@@ -24,7 +24,7 @@ public class EquipamentoService {
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Equipamento.class.getName()));
     }
-        
+
     public URI uploadFotosEquipamento(MultipartFile multipartFile, Integer id) {
         URI uri = s3Service.uploadFile(multipartFile, id);
         Equipamento eq = find(id);

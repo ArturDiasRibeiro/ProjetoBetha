@@ -4,7 +4,6 @@ package com.projetobetha.dev.resources;
 import com.projetobetha.dev.domain.OrdemDeServico;
 import com.projetobetha.dev.dto.OrdemDeServicoDTO;
 import com.projetobetha.dev.dto.OrdemDeServicoNewDTO;
-import com.projetobetha.dev.services.EquipamentoService;
 import com.projetobetha.dev.services.OrdemDeServicoService;
 import java.net.URI;
 import java.util.List;
@@ -28,7 +27,6 @@ public class OrdemDeServicoResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    
     @PreAuthorize("hasAnyRole('ATENDENTE', 'TECNICO', 'ADMIN')")
     @GetMapping
     public ResponseEntity<List<OrdemDeServico>> findAll() {
@@ -51,16 +49,13 @@ public class OrdemDeServicoResource {
         OrdemDeServico ordem = ordemDeServicoService.update(obj, id);
         return ResponseEntity.noContent().build();
     }
-    
-   
-    @PreAuthorize("hasAnyRole('CLIENTE', 'ATENDENTE', 'TECNICO', 'ADMIN')")
+
     @PostMapping(value = "/ordemaprovada/{id}")
     public ResponseEntity<OrdemDeServico> updateAprovada(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.updateAprovada(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PreAuthorize("hasAnyRole('CLIENTE', 'ATENDENTE', 'TECNICO', 'ADMIN')")
     @PostMapping(value = "/ordemrecusada/{id}")
     public ResponseEntity<OrdemDeServico> updateReprovada(@PathVariable Integer id) {
         OrdemDeServico obj = ordemDeServicoService.updateReprovada(id);

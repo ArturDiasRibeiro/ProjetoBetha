@@ -1,7 +1,6 @@
 package com.projetobetha.dev.dto;
 
 //Coded by: Artur Dias
-
 import com.projetobetha.dev.domain.OrdemDeServico;
 
 public class EquipamentoDTO {
@@ -13,7 +12,7 @@ public class EquipamentoDTO {
 
     private String imagemUrl;
     private OrdemDeServico ordem;
-    
+
     public EquipamentoDTO() {
     }
 

@@ -102,6 +102,11 @@ public class OrdemDeServicoService {
         if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
             emailService.sendConfirmationHtmlEmail(obj, objDto);
         }
+        
+        if (objDto.getStatus().equals(StatusDaOrdem.CONCLUIDO)){
+            emailService.sendConclusionHtmlEmail(obj);
+            //updateConclusao(obj);
+        }
 
         //ordemDeServicoRepository.save(obj);
         return ordemDeServicoRepository.save(obj);

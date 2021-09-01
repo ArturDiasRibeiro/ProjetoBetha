@@ -20,20 +20,20 @@ public class Equipamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank(message="Preencha todas as informações do Equipamento")
+    @NotBlank(message = "Preencha todas as informações do Equipamento")
     private String modelo;
-    @NotBlank(message="Preencha todas as informações do Equipamento")
+    @NotBlank(message = "Preencha todas as informações do Equipamento")
     private String marca;
-    @NotBlank(message="Preencha todas as informações do Equipamento")
+    @NotBlank(message = "Preencha todas as informações do Equipamento")
     private String classificacaoDoProduto;
-    @NotBlank(message="Preencha todas as informações do Equipamento")
+    @NotBlank(message = "Preencha todas as informações do Equipamento")
     private String avarias;
-    
+
     private String imagemUrl;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="ordem_id")
+    @JoinColumn(name = "ordem_id")
     private OrdemDeServico ordem;
 
     public Equipamento() {

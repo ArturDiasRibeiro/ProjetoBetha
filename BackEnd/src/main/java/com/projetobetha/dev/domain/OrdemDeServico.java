@@ -31,8 +31,6 @@ public class OrdemDeServico implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ordem")
     private List<Equipamento> equipamentos = new ArrayList<>();
-    
-    
 
     private BigDecimal valor;
 
@@ -73,7 +71,7 @@ public class OrdemDeServico implements Serializable {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
-    
+
     public StatusDaOrdem getStatus() {
         return status;
     }

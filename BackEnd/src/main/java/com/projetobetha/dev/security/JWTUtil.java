@@ -44,7 +44,6 @@ public class JWTUtil {
         }
         return null;
     }
-    
 
     private Claims getClaims(String token) {
         try {

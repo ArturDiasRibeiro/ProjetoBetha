@@ -1,7 +1,6 @@
 package com.projetobetha.dev.resources;
 
 //Coded by: Artur Dias
-
 import com.projetobetha.dev.services.EquipamentoService;
 import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;

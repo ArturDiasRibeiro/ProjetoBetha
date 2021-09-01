@@ -3,7 +3,6 @@ package com.projetobetha.dev.security;
 //Coded by: Artur Dias
 import com.projetobetha.dev.domain.enums.Perfil;
 import java.util.Collection;
-import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

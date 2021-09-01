@@ -47,7 +47,7 @@ public class OrdemDeServicoNewDTO implements Serializable {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
-    
+
     public StatusDaOrdem getStatus() {
         return status;
     }
