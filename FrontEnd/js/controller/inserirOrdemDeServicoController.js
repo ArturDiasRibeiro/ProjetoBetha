@@ -4,13 +4,15 @@ angular
     "inserirOrdemDeServicoController",
     function ($scope, $location, ordemDeServicoService) {
       $scope.app = "Adicionar Ordem De Serviço";
+
+      //"DTO" para criar nova ordem de serviço
       $scope.ordemDeServicoDTO = {
         clienteId: undefined,
         equipamentos: [],
         valor: undefined,
       };
 
-      //post one
+      //POST ordem de serviço
       $scope.postOrdemDeServico = function (ordemDeServico) {
         ordemDeServicoService.postOrdemDeServico(ordemDeServico).then(
           function (response) {
@@ -24,33 +26,52 @@ angular
         );
       };
 
-      $scope.onAdicionarEquipamento = function (equipamento) {
-        let viewText = true;
-        adicionarEquipamento(equipamento);
-        console.log($scope.ordemDeServicoDTO);
-      };
+      //Apagar todos os campos da tela
+      $scope.apagarTodosCampos = function () {
+        window.location.reload();
+      }
 
-      var adicionarEquipamento = function (equipamento) {
-        $scope.ordemDeServicoDTO.equipamentos.push(equipamento);
-        delete $scope.equipamento;
-      };
-
+      //Função salvar Cliente via DTO
       $scope.onAdicionarCliente = function (clienteId) {
         adicionarCliente(clienteId);
         console.log($scope.ordemDeServicoDTO);
       };
-
-      var adicionarCliente = function (clienteId) {
-        $scope.ordemDeServicoDTO.clienteId = clienteId;
+      let adicionarCliente = function (clienteId) {
+        if (clienteId === null || clienteId === undefined) {
+          alert("O ID do Cliente não pode estar vazio");
+        } else {
+          console.log(clienteId);
+          $scope.ordemDeServicoDTO.clienteId = clienteId;
+        }
       };
 
+      //Função salvar Equipamento via DTO
+      $scope.onAdicionarEquipamento = function (equipamento) {
+        adicionarEquipamento(equipamento);
+        console.log($scope.ordemDeServicoDTO);
+      };
+      let adicionarEquipamento = function (equipamento) {
+        if (equipamento === null || equipamento === undefined) {
+          alert("Os campos de Equipamento não podem estar vazios");
+        } else {
+          console.log(equipamento);
+          $scope.ordemDeServicoDTO.equipamentos.push(equipamento);
+          delete $scope.equipamento;
+        }
+      };
+
+      //Função salvar Valor via DTO
       $scope.onAdicionarValor = function (valor) {
         adicionarValor(valor);
         console.log($scope.ordemDeServicoDTO);
       };
-
-      var adicionarValor = function (valor) {
-        $scope.ordemDeServicoDTO.valor = valor;
+      let adicionarValor = function (valor) {
+        if (valor === null || valor === undefined) {
+          alert("O campo valor não pode ser adicionado vazio");
+        } else {
+          console.log(valor);
+          $scope.ordemDeServicoDTO.valor = valor;
+        }
       };
     }
   );
