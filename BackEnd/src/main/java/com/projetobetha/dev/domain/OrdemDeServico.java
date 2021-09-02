@@ -24,7 +24,7 @@ public class OrdemDeServico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

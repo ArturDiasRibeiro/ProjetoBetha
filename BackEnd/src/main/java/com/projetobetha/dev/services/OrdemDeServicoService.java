@@ -16,6 +16,7 @@ import com.projetobetha.dev.domain.Cliente;
 import com.projetobetha.dev.domain.Equipamento;
 import com.projetobetha.dev.dto.OrdemDeServicoNewDTO;
 import com.projetobetha.dev.repositories.EquipamentoRepository;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 @Service
@@ -51,18 +52,19 @@ public class OrdemDeServicoService {
     public OrdemDeServico insert(OrdemDeServicoNewDTO objNewDto) {
 
         Cliente cli = clienteService.find(objNewDto.getClienteId());
-
-        List<Equipamento> equipamentos = objNewDto.getEquipamentos();
-
+        List<Equipamento> equipamentos = new ArrayList<>();
         OrdemDeServico ordem = new OrdemDeServico(cli, objNewDto.getValor());
-        ordemDeServicoRepository.save(ordem);
 
-        for (Equipamento eq : equipamentos) {
-            eq.setOrdem(ordem);
-            equipamentoRepository.save(eq);
+        if (objNewDto.getEquipamentos().equals(null) || objNewDto.getEquipamentos().isEmpty()) {
+            throw new DataIntegrityViolationException("O EQUIPAMENTO NÃO PODE ESTAR VAZIO");
+        } else {
+            ordemDeServicoRepository.save(ordem);
+            equipamentos = objNewDto.getEquipamentos();
+            for (Equipamento eq : equipamentos) {
+                eq.setOrdem(ordem);
+                equipamentoRepository.save(eq);
+            }
         }
-
-        //ordem.setEquipamentos(equipamentos);
         ordem.setStatus(StatusDaOrdem.PENDENTE);
         return ordemDeServicoRepository.save(ordem);
     }
@@ -102,10 +104,9 @@ public class OrdemDeServicoService {
         if (obj.getStatus().equals(StatusDaOrdem.AGUARDANDOCLIENTE)) {
             emailService.sendConfirmationHtmlEmail(obj, objDto);
         }
-        
-        if (objDto.getStatus().equals(StatusDaOrdem.CONCLUIDO)){
+
+        if (obj.getStatus().equals(StatusDaOrdem.CONCLUIDO)) {
             emailService.sendConclusionHtmlEmail(obj);
-            //updateConclusao(obj);
         }
 
         //ordemDeServicoRepository.save(obj);
