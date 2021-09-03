@@ -2,7 +2,7 @@ angular
   .module("ProjetoBethaFrontEnd")
   .controller(
     "inserirOrdemDeServicoController",
-    function ($scope, $location, ordemDeServicoService) {
+    function ($scope, $location, ordemDeServicoService, clienteService) {
       $scope.app = "Adicionar Ordem De Serviço";
 
       //"DTO" para criar nova ordem de serviço
@@ -33,16 +33,18 @@ angular
 
       //Função salvar Cliente via DTO
       $scope.onAdicionarCliente = function (clienteId) {
+        clienteService.findOneById(clienteId).then(
+          function (response) {
+            $scope.cliente = response.data;
+          }, function(error){
+            alert("ID Inválido!")
+          })
         adicionarCliente(clienteId);
         console.log($scope.ordemDeServicoDTO);
       };
       let adicionarCliente = function (clienteId) {
-        if (clienteId === null || clienteId === undefined) {
-          alert("O ID do Cliente não pode estar vazio");
-        } else {
           console.log(clienteId);
           $scope.ordemDeServicoDTO.clienteId = clienteId;
-        }
       };
 
       //Função salvar Equipamento via DTO

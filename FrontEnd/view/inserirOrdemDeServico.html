@@ -9,10 +9,12 @@
         <label>Cliente Id:</label><br />
         <input
           type="number"
+          min="1"
           class="max350 centerIt"
           ng-model="clienteId"
           placeholder="ID Cliente"
         /><br />
+        {{cliente.nome}}<br /><br />
         <button class="btn btnTiny" ng-click="onAdicionarCliente(clienteId)">
           Adicionar cliente
         </button>
