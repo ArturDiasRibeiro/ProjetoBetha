@@ -3,7 +3,7 @@ angular
   .controller(
     "alterarOrdemDeServicoController",
     function ($scope, $location, $routeParams, ordemDeServicoService) {
-      $scope.app="Alterar Ordem de Serviço"
+      $scope.app = "Alterar Ordem de Serviço";
       $scope.ordemDeServicoDTO = {
         clienteId: undefined,
         equipamentos: [],
@@ -18,7 +18,7 @@ angular
         $scope.ordemDeServicoDTO.equipamentos = ordemDeServico.equipamentos;
         $scope.ordemDeServicoDTO.valor = ordemDeServico.valor;
         $scope.ordemDeServicoDTO.status = ordemDeServico.status;
-        $scope.ordemDeServicoDTO.imagemUrl = ordemDeServico.imagemUrl
+        $scope.ordemDeServicoDTO.imagemUrl = ordemDeServico.imagemUrl;
         console.log($scope.ordemDeServicoDTO);
       };
 
@@ -27,7 +27,6 @@ angular
           function (response) {
             let ordemDeServico = response.data;
             $scope.idOrdem = ordemDeServico.id;
-            // $scope.ordemDeServico = response.data;
             setOrdemDeServicoDTO(ordemDeServico);
           },
           function (error) {
@@ -42,19 +41,19 @@ angular
       //put OrdemDeServico
       $scope.putOrdemDeServico = function (ordemDeServicoDTO, idOrdem) {
         console.log(ordemDeServicoDTO);
-        ordemDeServicoDTO.equipamentos.forEach(equipamento => {
-          if(equipamento.imagemUrl===""){
-            equipamento.imagemUrl=null;
-            console.log(imagemUrl)
+        ordemDeServicoDTO.equipamentos.forEach((equipamento) => {
+          if (equipamento.imagemUrl === "") {
+            equipamento.imagemUrl = null;
+            console.log(imagemUrl);
           }
         });
-        
+
         ordemDeServicoDTO.status = parseInt(ordemDeServicoDTO.status);
         ordemDeServicoService
           .putOrdemDeServico(ordemDeServicoDTO, idOrdem)
           .then(
             function (response) {
-              $location.path("/ordemdeservicos/find/"+idOrdem);
+              $location.path("/ordemdeservicos/find/" + idOrdem);
             },
             function (error) {
               alert(error.data.message);

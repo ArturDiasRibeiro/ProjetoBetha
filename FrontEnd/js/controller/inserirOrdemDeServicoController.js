@@ -29,7 +29,7 @@ angular
       //Apagar todos os campos da tela
       $scope.apagarTodosCampos = function () {
         window.location.reload();
-      }
+      };
 
       //Função salvar Cliente via DTO
       $scope.onAdicionarCliente = function (clienteId) {

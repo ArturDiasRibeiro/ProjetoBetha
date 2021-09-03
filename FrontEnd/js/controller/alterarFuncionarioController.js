@@ -21,7 +21,6 @@ angular
       $scope.putFuncionario = function (funcionario) {
         funcionarioService.putFuncionario(funcionario).then(
           function (response) {
-            //this.findFuncionarios()
             $location.path("/funcionarios");
           },
           function (error) {

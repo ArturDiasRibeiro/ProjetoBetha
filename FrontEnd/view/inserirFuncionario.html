@@ -1,28 +1,46 @@
 <div id="root">
-    <div class="jumbotronSmall">
-        <a href="#/homepage" class="mainbtn">    HomePage</a><br><br>
-        <h3 class="centerIt">Formulário de Cadastramento de Funcionários</h3>
+  <div class="jumbotronSmall">
+    <a href="#/homepage" class="mainbtn">    HomePage</a><br /><br />
+    <h3 class="centerIt">Formulário de Cadastramento de Funcionários</h3>
 
-        <form class="centerIt">
-            <br>
-            Nome: <br>
-            <input type="text" class="max350 centerIt" ng-model="funcionario.nome" placeholder="Nome"><br><br>
-            Email: <br>
-            <input type="text" class="max350 centerIt" ng-model="funcionario.email" placeholder="Email"><br><br>
-            Perfil: <br>
-            <select class="size350 centerIt" ng-model="funcionario.perfil">
-                <option value="0">Admin</option>
-                <option value="1">Técnico</option>
-                <option value="2">Atendente</option>
-            </select><br><br>
-            Senha: <br>
-            <input type="password" class="max350 centerIt" ng-model="funcionario.senha" placeholder="Senha"><br><br>
-        </form>
-        <br>
+    <form class="centerIt">
+      <br />
+      Nome: <br />
+      <input
+        type="text"
+        class="max350 centerIt"
+        ng-model="funcionario.nome"
+        placeholder="Nome"
+      /><br /><br />
+      Email: <br />
+      <input
+        type="text"
+        class="max350 centerIt"
+        ng-model="funcionario.email"
+        placeholder="Email"
+      /><br /><br />
+      Perfil: <br />
+      <select class="size350 centerIt" ng-model="funcionario.perfil">
+        <option value="0">Admin</option>
+        <option value="1">Técnico</option>
+        <option value="2">Atendente</option></select
+      ><br /><br />
+      Senha: <br />
+      <input
+        type="password"
+        class="max350 centerIt"
+        ng-model="funcionario.senha"
+        placeholder="Senha"
+      /><br /><br />
+    </form>
+    <br />
 
-        <button class="btn btnTiny centerIt" ng-click="postFuncionario(funcionario)">Adicionar Funcionário</button>
-        <a class="btn btnTiny centerIt" href="#/funcionarios">Voltar</a>
-
-
-    </div>
+    <button
+      class="btn btnTiny centerIt"
+      ng-click="postFuncionario(funcionario)"
+    >
+      Adicionar Funcionário
+    </button>
+    <a class="btn btnTiny centerIt" href="#/funcionarios">Voltar</a>
+  </div>
 </div>

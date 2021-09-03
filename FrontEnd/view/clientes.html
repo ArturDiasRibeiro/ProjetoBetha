@@ -1,36 +1,56 @@
 <html>
-<div id="root">
+  <div id="root">
     <div class="jumbotron">
-        <a href="#/homepage" class="mainbtn">    HomePage</a><br><br>
-        <h4 ng-bind="app" class="titleOfTheScreen"></h4>
-        <br>
+      <a href="#/homepage" class="mainbtn">    HomePage</a><br /><br />
+      <h4 ng-bind="app" class="titleOfTheScreen"></h4>
+      <br />
+      <div>
+        <h6>
+          você pode clicar no nome do cliente para fácil vizualização dos dados
+        </h6>
+        <br />
         <div>
-            <h6>você pode clicar no nome do cliente para fácil vizualização dos dados</h6><br>
-            <div>
-                <input type="number" min="1" class="centerIt" ng-model="clienteId" placeholder="Id">
-                <a class="btn btnTiny centerIt" id="redirectBtns" href="#/clientes/find/{{clienteId}}">Encontrar</a>
-            </div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="max100">Id</th>
-                        <th>Nome</th>
-                        <th class="max150">Telefone</th>
-                        <th class="max225">E-mail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="cliente in clientes">
-                        <td class="max100">{{cliente.id}}</td>
-                        <td><a class="hoverName" href="#/clientes/find/{{cliente.id}}">{{cliente.nome}}</a></td>
-                        <td class="max150">{{cliente.telefone}}</td>
-                        <td class="max225">{{cliente.email}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
+          <input
+            type="number"
+            min="1"
+            class="centerIt"
+            ng-model="clienteId"
+            placeholder="Id"
+          />
+          <a
+            class="btn btnTiny centerIt"
+            id="redirectBtns"
+            href="#/clientes/find/{{clienteId}}"
+            >Encontrar</a
+          >
         </div>
-        <a class="btn centerIt" href="#/clientes/inserircliente">Adicionar novo cliente</a>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="max100">Id</th>
+              <th>Nome</th>
+              <th class="max150">Telefone</th>
+              <th class="max225">E-mail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cliente in clientes">
+              <td class="max100">{{cliente.id}}</td>
+              <td>
+                <a class="hoverName" href="#/clientes/find/{{cliente.id}}"
+                  >{{cliente.nome}}</a
+                >
+              </td>
+              <td class="max150">{{cliente.telefone}}</td>
+              <td class="max225">{{cliente.email}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+      </div>
+      <a class="btn centerIt" href="#/clientes/inserircliente"
+        >Adicionar novo cliente</a
+      >
     </div>
-</div>
+  </div>
 </html>
