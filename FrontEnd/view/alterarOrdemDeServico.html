@@ -11,11 +11,14 @@
         <input
           type="number"
           min="1"
-          class="max350 centerIt"
+          class="max250 centerIt"
           ng-model="ordemDeServicoDTO.clienteId"
           placeholder="ID Cliente"
-        />
-        {{ordemDeServicoDTO.cliente.nome}}
+        /><br>
+        <button class="btn btnTiny" ng-click="encontrarCliente(ordemDeServicoDTO.clienteId)">
+          Encontrar
+        </button><br><br>
+        {{cliente.nome}}
         <br /><br /><br />
         <h3>Equipamentos</h3>
         <br />

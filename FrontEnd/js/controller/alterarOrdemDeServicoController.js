@@ -2,7 +2,13 @@ angular
   .module("ProjetoBethaFrontEnd")
   .controller(
     "alterarOrdemDeServicoController",
-    function ($scope, $location, $routeParams, ordemDeServicoService) {
+    function (
+      $scope,
+      $location,
+      $routeParams,
+      ordemDeServicoService,
+      clienteService
+    ) {
       $scope.app = "Alterar Ordem de Serviço";
       $scope.ordemDeServicoDTO = {
         clienteId: undefined,
@@ -59,6 +65,16 @@ angular
               alert(error.data.message);
             }
           );
+      };
+      $scope.encontrarCliente = function (clienteId) {
+        clienteService.findOneById(clienteId).then(
+          function (response) {
+            $scope.cliente = response.data;
+          },
+          function (error) {
+            alert("ID Inválido!");
+          }
+        );
       };
     }
   );
